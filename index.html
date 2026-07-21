@@ -4,142 +4,345 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frame — Sistema Operativo de Productividad</title>
-  <meta name="description" content="Frame: asignaturas, tareas, sesiones de estudio, hábitos, calendario y música en una app de escritorio nativa, rápida y offline-first. Descarga gratuita para Windows." />
+  <meta name="description" content="Frame: asignaturas, tareas, sesiones de estudio, hábitos, calendario, música y grabaciones en una app de escritorio nativa, rápida y offline-first. Descarga gratuita para Windows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b0d12;
-      --card: #12151d;
-      --border: #232838;
-      --text: #e8eaf0;
-      --muted: #8a91a3;
-      --primary: #5b7cfa;
-      --primary-dark: #4a67d6;
+      --cream: #f5f1e8;
+      --cream-2: #efe9dc;
+      --ink: #1c1b16;
+      --ink-soft: #57534a;
+      --muted: #8a857a;
+      --card: #fbf8f2;
+      --line: #e3dccd;
+      --dark: #171712;
+      --dark-2: #211f1a;
+      --accent: #5b7cfa;
+      --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      background: radial-gradient(1200px 600px at 50% -10%, #1a2036 0%, var(--bg) 60%);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 48px 24px;
-      max-width: 720px;
-    }
-    .logo {
-      width: 84px; height: 84px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, var(--primary), #7c5bfa);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 40px; font-weight: 800; color: white;
-      box-shadow: 0 12px 40px rgba(91, 124, 250, 0.35);
-      margin-bottom: 28px;
-      letter-spacing: -2px;
-      user-select: none;
-    }
-    h1 {
-      font-size: 44px;
-      letter-spacing: 6px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .tagline { color: var(--muted); margin-top: 10px; font-size: 16px; }
-    .quote { color: var(--primary); margin-top: 6px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-    .download {
-      margin-top: 40px;
-      display: inline-flex; align-items: center; gap: 12px;
-      background: var(--primary);
-      color: white; text-decoration: none;
-      font-size: 17px; font-weight: 700;
-      padding: 16px 34px; border-radius: 12px;
-      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
-      box-shadow: 0 10px 30px rgba(91, 124, 250, 0.35);
-    }
-    .download:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(91,124,250,.45); }
-    .download svg { flex-shrink: 0; }
+    /* ============ HERO ============ */
+    .hero { position: relative; overflow: hidden; color: #fff; }
+    .hero svg.scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-inner { position: relative; z-index: 2; }
 
-    .meta { margin-top: 14px; color: var(--muted); font-size: 13px; min-height: 20px; }
-    .meta strong { color: var(--text); }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .brand { font-family: var(--serif); font-size: 26px; letter-spacing: .5px; }
+    .nav-links { display: flex; gap: 26px; font-size: 13.5px; font-weight: 500; opacity: .92; }
+    .nav-links a:hover { opacity: .75; }
+    .nav-cta { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); padding: 8px 16px; border-radius: 99px; font-size: 13px; font-weight: 600; backdrop-filter: blur(6px); }
+    .nav-cta:hover { background: rgba(255,255,255,.28); }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      margin-top: 48px;
-      width: 100%;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 16px;
-      text-align: left;
-    }
-    .card h3 { font-size: 13px; color: var(--primary); margin-bottom: 6px; }
-    .card p { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .hero-content { text-align: center; padding: 84px 24px 130px; max-width: 780px; margin: 0 auto; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6.4vw, 74px); line-height: 1.04; letter-spacing: -.5px; text-shadow: 0 2px 30px rgba(40,20,60,.25); }
+    .hero p.sub { margin: 22px auto 0; max-width: 560px; font-size: 15.5px; line-height: 1.65; color: rgba(255,255,255,.92); }
+    .btn-light { display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; background: #fff; color: var(--ink); font-weight: 600; font-size: 15px; padding: 14px 30px; border-radius: 99px; box-shadow: 0 12px 34px rgba(30,15,50,.28); transition: transform .15s ease, box-shadow .15s ease; }
+    .btn-light:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(30,15,50,.35); }
+    .hero .meta { margin-top: 16px; font-size: 12.5px; color: rgba(255,255,255,.85); }
+    .hero .meta strong { color: #fff; }
 
-    footer {
-      width: 100%;
-      border-top: 1px solid var(--border);
-      padding: 18px 24px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-    }
-    footer a { color: var(--muted); }
-    @media (max-width: 520px) {
-      h1 { font-size: 32px; letter-spacing: 4px; }
+    /* ============ SECCIONES ============ */
+    section { padding: 88px 0; }
+    .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    h2.display { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4.4vw, 46px); line-height: 1.12; letter-spacing: -.4px; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+    .stat .num { font-family: var(--serif); font-size: clamp(44px, 5.6vw, 64px); line-height: 1; }
+    .stat h3 { font-size: 14px; font-weight: 600; margin: 14px 0 6px; }
+    .stat p { font-size: 13px; line-height: 1.6; color: var(--ink-soft); }
+    .stat { border-top: 1px solid var(--line); padding-top: 26px; }
+
+    /* Feature cards */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
+    .feature { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 22px; }
+    .feature .icon { width: 42px; height: 42px; border-radius: 12px; background: var(--cream-2); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .feature .icon svg { width: 20px; height: 20px; stroke: var(--ink); }
+    .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .feature p { font-size: 13px; line-height: 1.65; color: var(--ink-soft); }
+
+    /* Confianza / stack */
+    .trust { text-align: center; }
+    .trust .sub { max-width: 520px; margin: 14px auto 0; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+    .logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 40px; margin: 44px 0 54px; color: var(--ink-soft); }
+    .logos span { font-weight: 700; font-size: 17px; letter-spacing: .3px; opacity: .75; }
+    .logos span i { font-style: normal; font-family: var(--serif); font-weight: 400; }
+
+    .quote-card { display: grid; grid-template-columns: 1fr 210px; gap: 30px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 40px 44px; text-align: left; max-width: 860px; margin: 0 auto; }
+    .quote-card blockquote { font-family: var(--serif); font-size: clamp(20px, 2.6vw, 27px); line-height: 1.35; }
+    .quote-card .who { margin-top: 18px; font-size: 13px; color: var(--ink-soft); }
+    .quote-card .who strong { color: var(--ink); font-weight: 600; display: block; font-size: 14px; }
+    .avatar { width: 150px; height: 150px; border-radius: 18px; margin-left: auto; background: linear-gradient(135deg, #5b7cfa, #7c5bfa); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 56px; color: #fff; }
+
+    /* Banner oscuro */
+    .dark-banner { background: var(--dark); color: #efece3; border-radius: 24px; padding: 74px 56px; text-align: center; position: relative; overflow: hidden; }
+    .dark-banner::before { content: ''; position: absolute; inset: -40% -20% auto; height: 70%; background: radial-gradient(600px 260px at 50% 0%, rgba(91,124,250,.28), transparent 70%); }
+    .dark-banner > * { position: relative; }
+    .chip { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: #cfc8b8; border: 1px solid #3a382f; background: #23221c; padding: 7px 14px; border-radius: 99px; margin-bottom: 22px; }
+    .dark-banner h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 4vw, 44px); line-height: 1.15; max-width: 640px; margin: 0 auto; }
+    .dark-banner p { max-width: 540px; margin: 18px auto 0; font-size: 14.5px; line-height: 1.7; color: #b9b4a6; }
+    .btn-dark-light { display: inline-block; margin-top: 30px; background: #efece3; color: var(--dark); font-weight: 600; font-size: 14px; padding: 13px 26px; border-radius: 99px; }
+    .btn-dark-light:hover { background: #fff; }
+
+    /* Producto / mockup */
+    .product { text-align: center; }
+    .product .sub { max-width: 560px; margin: 14px auto 0; font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); }
+    .mock { margin: 52px auto 0; max-width: 880px; background: #10131a; border: 1px solid #262b38; border-radius: 18px; box-shadow: 0 40px 90px rgba(28,27,22,.18); overflow: hidden; text-align: left; color: #e6e9f2; }
+    .mock .titlebar { display: flex; align-items: center; gap: 7px; padding: 11px 16px; background: #0b0e14; border-bottom: 1px solid #1d222e; }
+    .mock .dot { width: 10px; height: 10px; border-radius: 50%; background: #2b3140; }
+    .mock .titlebar span { margin-left: 8px; font-size: 11px; color: #78809a; letter-spacing: 2px; }
+    .mock-body { display: grid; grid-template-columns: 190px 1fr; min-height: 360px; }
+    .mock-side { background: #0d1017; border-right: 1px solid #1d222e; padding: 16px 12px; font-size: 12px; color: #9aa2b8; }
+    .mock-side .logo { font-family: var(--serif); color: #e6e9f2; font-size: 17px; letter-spacing: 2px; text-align: center; margin: 6px 0 18px; }
+    .mock-side .item { padding: 8px 12px; border-radius: 8px; margin-bottom: 3px; }
+    .mock-side .item.active { background: rgba(91,124,250,.16); color: #8ea3ff; font-weight: 600; }
+    .mock-main { padding: 22px 26px; }
+    .mock-main .quote { text-align: center; font-size: 10.5px; letter-spacing: 2.4px; color: #8ea3ff; text-transform: uppercase; margin-bottom: 20px; }
+    .mock-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+    .mock-card { background: #141824; border: 1px solid #222839; border-radius: 12px; padding: 14px; }
+    .mock-card .label { font-size: 10px; color: #78809a; margin-bottom: 6px; }
+    .mock-card .value { font-family: var(--serif); font-size: 24px; color: #cdd6ff; }
+    .mock-task { display: flex; align-items: center; gap: 12px; background: #141824; border: 1px solid #222839; border-radius: 10px; padding: 11px 14px; margin-bottom: 9px; font-size: 12px; }
+    .mock-task .box { width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid #3d4763; flex-shrink: 0; }
+    .mock-task .box.done { background: #5b7cfa; border-color: #5b7cfa; }
+    .mock-task .bar { margin-left: auto; width: 110px; height: 5px; border-radius: 99px; background: #222839; overflow: hidden; flex-shrink: 0; }
+    .mock-task .bar i { display: block; height: 100%; background: #5b7cfa; border-radius: 99px; }
+    .mock-task .t { color: #c6cce0; }
+    .mock-task small { color: #78809a; }
+
+    /* Descarga final */
+    .cta-final { text-align: center; padding-bottom: 110px; }
+    .btn-ink { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; background: var(--ink); color: #fff; font-weight: 600; font-size: 15px; padding: 15px 32px; border-radius: 99px; transition: transform .15s ease; }
+    .btn-ink:hover { transform: translateY(-2px); }
+    .cta-final .fine { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 30px 0 40px; }
+    .foot { display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; justify-content: space-between; font-size: 12.5px; color: var(--muted); }
+    .foot .brand-foot { font-family: var(--serif); font-size: 19px; color: var(--ink); }
+    .foot a:hover { color: var(--ink); }
+    .foot .links { display: flex; gap: 22px; }
+
+    @media (max-width: 860px) {
+      .stats, .features { grid-template-columns: 1fr; gap: 26px; }
+      .quote-card { grid-template-columns: 1fr; padding: 30px 26px; }
+      .avatar { margin: 0; }
+      .mock-body { grid-template-columns: 1fr; }
+      .mock-side { display: none; }
+      .nav-links { display: none; }
+      .dark-banner { padding: 54px 26px; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="logo">F</div>
-    <h1>Frame</h1>
-    <p class="tagline">Sistema Operativo de Productividad — asignaturas, tareas, sesiones de estudio, hábitos, calendario y música en una sola app nativa, rápida y offline-first.</p>
-    <p class="quote">No basta con ser bueno, hay que ser el mejor</p>
 
-    <a id="downloadBtn" class="download" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Descargar para Windows
-    </a>
-    <p class="meta" id="meta">Versión estable más reciente · Windows 10/11 (64 bits)</p>
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <svg class="scene" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7fa8b8"/>
+          <stop offset="38%" stop-color="#c7a9a6"/>
+          <stop offset="62%" stop-color="#eec39a"/>
+          <stop offset="82%" stop-color="#f6d9a4"/>
+          <stop offset="100%" stop-color="#f8e3b6"/>
+        </linearGradient>
+        <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b28a99"/><stop offset="100%" stop-color="#9a7389"/>
+        </linearGradient>
+        <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8a6580"/><stop offset="100%" stop-color="#6f5270"/>
+        </linearGradient>
+        <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5d4663"/><stop offset="100%" stop-color="#463754"/>
+        </linearGradient>
+        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff3cf" stop-opacity=".95"/>
+          <stop offset="100%" stop-color="#fff3cf" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="820" fill="url(#sky)"/>
+      <circle cx="720" cy="470" r="300" fill="url(#sunGlow)"/>
+      <circle cx="720" cy="470" r="86" fill="#fbe6ae"/>
+      <path d="M0 520 L180 430 L340 510 L520 420 L700 515 L900 440 L1080 520 L1260 450 L1440 510 L1440 820 L0 820 Z" fill="url(#m1)" opacity=".9"/>
+      <path d="M0 590 L220 500 L420 585 L640 505 L860 590 L1060 515 L1250 590 L1440 530 L1440 820 L0 820 Z" fill="url(#m2)" opacity=".95"/>
+      <path d="M0 680 L260 590 L500 672 L760 595 L1010 675 L1240 605 L1440 665 L1440 820 L0 820 Z" fill="url(#m3)"/>
+      <path d="M0 760 Q 360 700 720 745 T 1440 735 L1440 820 L0 820 Z" fill="#352a44"/>
+    </svg>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Siempre actualizado</h3>
-        <p>Este botón entrega SIEMPRE la última versión publicada. Y una vez instalada, Frame se actualiza solo: detecta cada nueva versión, la descarga y se reinstala automáticamente.</p>
-      </div>
-      <div class="card">
-        <h3>Instalación</h3>
-        <p>Ejecuta el instalador y sigue los pasos (español). Si Windows SmartScreen muestra un aviso, elige «Más información» → «Ejecutar de todas formas»: ocurre con cualquier app nueva sin certificado comercial.</p>
-      </div>
-      <div class="card">
-        <h3>Requisitos</h3>
-        <p>Windows 10 u 11 de 64 bits y WebView2 (incluido en Windows 11 y en la mayoría de Windows 10). Funciona sin conexión; las integraciones de Google y la música necesitan internet.</p>
+    <div class="hero-inner wrap">
+      <nav>
+        <a class="brand" href="#">Frame</a>
+        <div class="nav-links">
+          <a href="#caracteristicas">Características</a>
+          <a href="#actualizaciones">Actualizaciones</a>
+          <a href="https://github.com/GasparRojasDiego/frame-app/releases" target="_blank" rel="noopener">Versiones</a>
+        </div>
+        <a class="nav-cta" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe">Descargar</a>
+      </nav>
+
+      <div class="hero-content">
+        <h1>Definiendo el futuro de la productividad personal</h1>
+        <p class="sub">Frame reúne tus asignaturas, tareas, sesiones de estudio, hábitos, calendario, música y grabaciones en una sola app de escritorio: nativa, veloz y con tus datos siempre en tu equipo.</p>
+        <a class="btn-light" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar para Windows
+        </a>
+        <p class="meta" id="meta">Versión estable más reciente · Windows 10/11 (64 bits) · Gratis</p>
       </div>
     </div>
-  </main>
+  </header>
+
+  <!-- ================= STATS ================= -->
+  <section id="caracteristicas">
+    <div class="wrap">
+      <p class="eyebrow">Diseñado para el enfoque. Construido para durar.</p>
+      <h2 class="display">Todo tu sistema de trabajo,<br/>en una sola aplicación.</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">10+</div>
+          <h3>Módulos integrados</h3>
+          <p>Inicio, asignaturas, tareas, temporizador, hábitos, calendario, música, grabaciones y las integraciones de Google, sin cambiar de ventana.</p>
+        </div>
+        <div class="stat">
+          <div class="num">100%</div>
+          <h3>Offline-first</h3>
+          <p>Tus datos viven en tu equipo y la app funciona completa sin conexión. Internet solo se usa para lo que de verdad lo necesita.</p>
+        </div>
+        <div class="stat">
+          <div class="num">0</div>
+          <h3>Mantenimiento</h3>
+          <p>Se instala en un clic y se actualiza sola con versiones firmadas: nunca tendrás que volver a descargarla a mano.</p>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3>Gestión académica completa</h3>
+          <p>Asignaturas y colecciones estilo aula, tareas con recordatorios, tiempo estimado y avance por sesión, recursos adjuntos y archivado con historial.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/></svg></div>
+          <h3>Sesiones que construyen disciplina</h3>
+          <p>Temporizador y cronómetro con mini-ventana flotante, calificación diaria, racha de días y metas semanales que se reflejan en tu calendario.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div>
+          <h3>Tu música y tu voz</h3>
+          <p>Biblioteca de música local con importación desde Spotify y carátulas reales, y una grabadora de voz instantánea con Ctrl+Shift+F, ligada a tus asignaturas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONFIANZA ================= -->
+  <section class="trust" style="padding-top: 20px;">
+    <div class="wrap">
+      <h2 class="display">Construido con tecnología<br/>de primer nivel</h2>
+      <p class="sub">Frame es una aplicación nativa de escritorio: arranca en un instante, consume poco y se siente parte de tu sistema.</p>
+
+      <div class="logos">
+        <span><i>Tauri</i></span>
+        <span>Rust</span>
+        <span>React</span>
+        <span>TypeScript</span>
+        <span><i>Supabase</i></span>
+      </div>
+
+      <div class="quote-card">
+        <div>
+          <blockquote>"Frame nació para mi propio uso: cada función existe porque la necesité de verdad. No basta con ser bueno, hay que ser el mejor."</blockquote>
+          <p class="who"><strong>Diego Gaspar Rojas</strong>Creador de Frame · VT Asvent, desarrollo de software</p>
+        </div>
+        <div class="avatar">D</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BANNER OSCURO ================= -->
+  <section id="actualizaciones">
+    <div class="wrap">
+      <div class="dark-banner">
+        <span class="chip">Actualizaciones automáticas</span>
+        <h2>Ingeniería diseñada para mantenerse siempre al día</h2>
+        <p>Cada nueva versión se publica firmada criptográficamente. Frame la detecta, la descarga y se reinstala solo, sin que muevas un dedo. Y este sitio entrega siempre el instalador más reciente.</p>
+        <a class="btn-dark-light" href="https://github.com/GasparRojasDiego/frame-app/releases" target="_blank" rel="noopener">Ver historial de versiones</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTO ================= -->
+  <section class="product" style="padding-top: 10px;">
+    <div class="wrap">
+      <h2 class="display">Impulsa tu disciplina con Frame</h2>
+      <p class="sub">Un vistazo a tu día: racha, horas de estudio, tareas con avance real y tu frase presidiendo la jornada.</p>
+
+      <div class="mock" role="img" aria-label="Vista simulada de la aplicación Frame">
+        <div class="titlebar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>FRAME</span></div>
+        <div class="mock-body">
+          <div class="mock-side">
+            <div class="logo">FRAME</div>
+            <div class="item active">Inicio</div>
+            <div class="item">Tareas</div>
+            <div class="item">Hábitos</div>
+            <div class="item">Asignaturas</div>
+            <div class="item">Temporizador</div>
+            <div class="item">Calendario</div>
+            <div class="item">Música</div>
+          </div>
+          <div class="mock-main">
+            <div class="quote">No basta con ser bueno, hay que ser el mejor</div>
+            <div class="mock-cards">
+              <div class="mock-card"><div class="label">Días de racha</div><div class="value">12</div></div>
+              <div class="mock-card"><div class="label">Estudio semanal</div><div class="value">14h 30m</div></div>
+              <div class="mock-card"><div class="label">Promedio</div><div class="value">17.2 A</div></div>
+            </div>
+            <div class="mock-task"><span class="box done"></span><span class="t">Informe de laboratorio — Física</span><small>hoy</small><span class="bar"><i style="width:100%"></i></span></div>
+            <div class="mock-task"><span class="box"></span><span class="t">Ensayo final — TOK</span><small>2h est.</small><span class="bar"><i style="width:65%"></i></span></div>
+            <div class="mock-task"><span class="box"></span><span class="t">Guía de ejercicios — Matemática</span><small>vie 25</small><span class="bar"><i style="width:30%"></i></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA FINAL ================= -->
+  <section class="cta-final" style="padding-top: 20px;">
+    <div class="wrap">
+      <h2 class="display">Empieza hoy. Gratis.</h2>
+      <a class="btn-ink" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar Frame para Windows
+      </a>
+      <p class="fine">Windows 10/11 de 64 bits · Si SmartScreen muestra un aviso, elige «Más información» → «Ejecutar de todas formas» (ocurre con cualquier app nueva sin certificado comercial).</p>
+    </div>
+  </section>
 
   <footer>
-    © 2026 Diego Gaspar Rojas · VT Asvent · <a href="https://github.com/GasparRojasDiego/frame-app/releases" target="_blank" rel="noopener">historial de versiones</a>
+    <div class="wrap foot">
+      <span class="brand-foot">Frame</span>
+      <div class="links">
+        <a href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe">Descargar</a>
+        <a href="https://github.com/GasparRojasDiego/frame-app/releases" target="_blank" rel="noopener">Versiones</a>
+        <a href="#caracteristicas">Características</a>
+      </div>
+      <span>© 2026 Diego Gaspar Rojas · VT Asvent, desarrollo de software</span>
+    </div>
   </footer>
 
   <script>
-    // Robustez: el botón funciona SIEMPRE (enlace estático a /releases/latest).
-    // El fetch solo enriquece la página con versión, fecha y tamaño reales;
-    // si la API falla o hay límite de peticiones, no rompe absolutamente nada.
+    // Robustez primero: todos los botones son enlaces estáticos a
+    // /releases/latest (siempre la última versión). Este fetch solo
+    // enriquece la línea de metadatos; si falla, nada se rompe.
     (function () {
       var meta = document.getElementById('meta');
       fetch('https://api.github.com/repos/GasparRojasDiego/frame-app/releases/latest', {
@@ -158,7 +361,7 @@
           if (version) parts.push('Versión <strong>' + version + '</strong>');
           if (date) parts.push(date);
           if (size) parts.push(size);
-          parts.push('Windows 10/11 (64 bits)');
+          parts.push('Windows 10/11 (64 bits) · Gratis');
           meta.innerHTML = parts.join(' · ');
         })
         .catch(function () { /* la página sigue funcionando igual */ });
