@@ -40,21 +40,6 @@
   --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --bg: hsl(240 2% 11%);
-    --card: hsl(240 2% 15%);
-    --soft: hsl(240 3.7% 15.9%);
-    --fg: hsl(0 0% 98%);
-    --muted: hsl(240 5% 64.9%);
-    --border: hsl(240 3.7% 20%);
-    --primary: hsl(228 100% 73%);
-    --primary-rgb: 117, 145, 255;
-    --panel-alpha: 80%;
-    --shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.7);
-    color-scheme: dark;
-  }
-}
 :root {
   --p06: rgba(var(--primary-rgb), 0.06);
   --p10: rgba(var(--primary-rgb), 0.1);
@@ -63,21 +48,14 @@
   --p45: rgba(var(--primary-rgb), 0.45);
 }
 
-/* Capturas en su versión clara u oscura. */
-.shot-light { display: none; }
-:root[data-theme='light'] .shot-dark { display: none; }
-:root[data-theme='light'] .shot-light { display: block; }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme='dark']) .shot-dark { display: none; }
-  :root:not([data-theme='dark']) .shot-light { display: block; }
-}
+/* Capturas: por defecto las del modo claro. */
+.shot-dark { display: none; }
+:root[data-theme='dark'] .shot-dark { display: block; }
+:root[data-theme='dark'] .shot-light { display: none; }
+/* El botón muestra el modo al que se va a cambiar. */
 .i-sun { display: none; }
 :root[data-theme='dark'] .i-sun { display: block; }
 :root[data-theme='dark'] .i-moon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .i-sun { display: block; }
-  :root:not([data-theme='light']) .i-moon { display: none; }
-}
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -115,6 +93,14 @@ kbd { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; font-size
 
 .sky, .cursor-ring { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .sky { z-index: 0; }
+/* Paisaje de cabecera: ancho completo, alineado arriba y sin deformarse. Un
+   velo lo aclara y un degradado lo funde con el fondo de la página. */
+.top-photo { position: absolute; top: 0; left: 0; width: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
+.top-photo img { width: 100%; height: auto; }
+.top-photo .veil, .top-photo .fade, .final .veil, .final .fade { position: absolute; inset: 0; }
+.top-photo .veil { background: rgba(255, 255, 255, 0.6); }
+.top-photo .fade { background: linear-gradient(to top, var(--bg) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 30%, transparent 74%); }
+:root[data-theme='dark'] .top-photo .veil { background: rgba(17, 17, 19, 0.62); }
 .cursor-ring { z-index: 90; }
 .nav, main, .footer { position: relative; z-index: 1; }
 
@@ -389,14 +375,16 @@ kbd { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; font-size
 .faq details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--muted); font-size: 0.9rem; }
 
 /* ---------- Descarga final ---------- */
-.final { position: relative; overflow: hidden; isolation: isolate; border-radius: 28px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: clamp(3.5rem, 8vw, 6rem) 1.5rem; text-align: center; color: #fff; }
+.final { position: relative; overflow: hidden; isolation: isolate; border-radius: 28px; border: 1px solid var(--border); box-shadow: var(--shadow); padding: clamp(3.5rem, 8vw, 6rem) 1.5rem; text-align: center; color: var(--fg); }
 .final-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; z-index: -2; transform: scale(1.06); }
-.final-veil { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at center, rgba(22, 22, 24, 0.55), rgba(22, 22, 24, 0.9)); }
+.final .veil { z-index: -1; background: rgba(255, 255, 255, 0.6); }
+:root[data-theme='dark'] .final .veil { background: rgba(17, 17, 19, 0.62); }
+.final .fade { z-index: -1; background: linear-gradient(to top, var(--bg) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 26%, transparent 62%); }
 .final-inner { display: flex; flex-direction: column; align-items: center; }
-.final-logo { animation: float 7s ease-in-out infinite; filter: drop-shadow(0 0 22px rgba(157, 176, 241, 0.55)); }
-.final .lead { color: rgba(255, 255, 255, 0.78); margin: 0 auto 1.8rem; }
-.final .btn-primary { background: #7591ff; }
-.final .fine { margin: 1.3rem 0 0; font-size: 0.8rem; color: rgba(255, 255, 255, 0.62); }
+.final-logo { animation: float 7s ease-in-out infinite; filter: drop-shadow(0 0 22px rgba(var(--primary-rgb), 0.45)); }
+.final .lead { margin: 0 auto 1.8rem; }
+
+.final .fine { margin: 1.3rem 0 0; font-size: 0.8rem; color: var(--muted); }
 .final .fine a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Pie ---------- */

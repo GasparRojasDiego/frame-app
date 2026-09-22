@@ -15,10 +15,9 @@
   var rgb = primaryRgb();
 
   /* ---------- Tema claro / oscuro ---------- */
+  // El claro es el modo predeterminado; el oscuro se activa a mano.
   function currentTheme() {
-    var set = root.getAttribute('data-theme');
-    if (set) return set;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
   var toggle = $('#theme-toggle');
   if (toggle) {
@@ -29,7 +28,6 @@
       rgb = primaryRgb();
     });
   }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { rgb = primaryRgb(); });
 
   /* ---------- Menú en pantallas pequeñas ---------- */
   var menu = $('#menu-toggle');
