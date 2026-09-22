@@ -1,0 +1,7 @@
+# Frame · VT Asvent
+# Si encontraste una vulnerabilidad en Frame o en este sitio, repórtala en
+# privado por el canal de GitHub. No la publiques hasta que esté corregida.
+Contact: https://github.com/GasparRojasDiego/frame-app/security/advisories/new
+Policy: https://github.com/GasparRojasDiego/frame-app/security/policy
+Preferred-Languages: es, en
+Expires: 2027-09-22T00:00:00.000Z

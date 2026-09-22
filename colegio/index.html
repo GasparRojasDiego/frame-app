@@ -3,23 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Seguridad: scripts solo de este sitio; la única conexión externa es
+         el servidor de Frame (Supabase). Sin marcos ajenos ni formularios
+         hacia otros sitios. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://egshmkkmvtsrgrfwpzog.supabase.co; font-src 'self' data:; connect-src 'self' https://egshmkkmvtsrgrfwpzog.supabase.co wss://egshmkkmvtsrgrfwpzog.supabase.co; media-src 'self' blob: https://egshmkkmvtsrgrfwpzog.supabase.co; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#0f0f14" />
-    <script>
-      // Tema antes del primer pintado: el guardado o, si no hay, el del sistema.
-      try {
-        var t = localStorage.getItem('framePortalTheme');
-        var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', dark);
-      } catch (e) {}
-    </script>
-    <title>Frame · Colegio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- La fuente se carga sin bloquear: si la red del colegio la filtra, la web abre igual con la tipografía del sistema. -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <script type="module" crossorigin src="./assets/index-DebFbw4w.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DUsaPd1b.css">
+    <script src="./theme-init.js"></script>
+    <title>Frame · Instituciones</title>
+    <link rel="stylesheet" href="./fonts.css" />
+    <script type="module" crossorigin src="./assets/index-CxrO5EOb.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CT1Tlvmp.css">
   </head>
   <body class="font-body antialiased">
     <div id="root"></div>
