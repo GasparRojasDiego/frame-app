@@ -9,8 +9,8 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Frame · Tu sistema operativo de estudio</title>
   <meta name="description" content="Frame reúne asignaturas, tareas, sesiones de enfoque, hábitos, calendario, música con letras sincronizadas y grabaciones en una sola app de escritorio para Windows. Gratis, sin anuncios y funciona sin conexión. Un producto de VT Asvent." />
-  <meta name="theme-color" content="#111116" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1c1c1e" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ece7dd" media="(prefers-color-scheme: light)" />
   <meta name="color-scheme" content="dark light" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Frame · VT Asvent" />
@@ -29,16 +29,20 @@
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
 
+  <!-- Fondo vivo de toda la página y cursor de puntos (decorativos). -->
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <canvas class="cursor-ring" id="cursor-ring" aria-hidden="true"></canvas>
+
   <!-- ============================================================ Barra -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Frame, inicio">
-        <img src="assets/img/logo.svg" alt="" width="34" height="34" />
+        <img src="assets/img/logo.svg" alt="" width="32" height="32" />
         <span>FRAME</span>
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Secciones">
         <a href="#funciones">Funciones</a>
-        <a href="#enfoque">Enfoque</a>
+        <a href="#mas">Más</a>
         <a href="#seguridad">Seguridad</a>
         <a href="#vt-asvent">VT Asvent</a>
         <a href="#preguntas">Preguntas</a>
@@ -62,66 +66,60 @@
   <main id="contenido">
     <!-- ============================================================ Portada -->
     <section class="hero" id="top">
-      <canvas class="constellation" id="constellation" aria-hidden="true"></canvas>
-      <div class="orb orb-a" aria-hidden="true"></div>
-      <div class="orb orb-b" aria-hidden="true"></div>
-
-      <div class="container hero-inner">
-        <div class="hero-copy" data-reveal>
-          <a class="pill" href="#musica">
-            <span class="dot-live" aria-hidden="true"></span>
-            <span>Nuevo en <b data-version>Frame 1.5</b>:</span>
-            <span class="pill-strong">letras sincronizadas sin conexión</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-          </a>
-          <h1 class="display">
-            Tu sistema operativo
-            <span class="grad">de estudio.</span>
-          </h1>
-          <p class="lead">
-            Asignaturas, tareas, sesiones de enfoque, hábitos, calendario, música y grabaciones
-            en <em class="serif">una sola</em> aplicación de escritorio. Tus datos, primero en tu equipo.
-          </p>
-          <div class="cta-row">
-            <a class="btn btn-primary btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe" data-download>
-              <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21v-8.5h-9.5v7.2Zm0-15.4v7.2H21V3l-9.5 1.3Z"/></svg>
-              <span class="btn-label">
-                Descargar para Windows
-                <small><span data-version-short>Versión estable</span> · <span data-size>~150 MB</span> · Gratis</small>
-              </span>
+      <div class="grid-texture" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-copy" data-reveal>
+            <a class="pill" href="#musica">
+              <span class="dot-live" aria-hidden="true"></span>
+              <span>Nuevo en <b data-version>Frame 1.5</b></span>
+              <span class="pill-sep" aria-hidden="true"></span>
+              <span class="pill-strong">letras sincronizadas sin conexión</span>
             </a>
-            <a class="btn btn-ghost btn-lg" href="#funciones">
-              Ver cómo funciona
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
-            </a>
+            <h1 class="display">
+              Tu sistema operativo
+              <span class="accent">de estudio.</span>
+            </h1>
+            <p class="lead">
+              Asignaturas, tareas, sesiones de enfoque, hábitos, calendario, música y grabaciones en
+              <em class="serif">una sola</em> aplicación de escritorio. Tus datos, primero en tu equipo.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe" data-download>
+                <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21v-8.5h-9.5v7.2Zm0-15.4v7.2H21V3l-9.5 1.3Z"/></svg>
+                <span class="btn-label">Descargar para Windows<small><span data-version-short>Versión estable</span> · <span data-size>143 MB</span> · Gratis</small></span>
+              </a>
+              <a class="btn btn-soft btn-lg" href="#funciones">Ver cómo funciona</a>
+            </div>
           </div>
-          <ul class="trust" aria-label="Lo esencial">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Windows 10 y 11</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Funciona sin conexión</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Sin anuncios</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Versiones firmadas</li>
-          </ul>
+
+          <div class="hero-visual" data-reveal>
+            <div class="window tilt" id="hero-window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Frame · Inicio</span></div>
+              <img class="shot shot-dark" src="assets/img/app-inicio-dark.webp" width="1920" height="1200" alt="Pantalla de Inicio de Frame: clima, horario semanal y rendimiento académico" fetchpriority="high" />
+              <img class="shot shot-light" src="assets/img/app-inicio-light.webp" width="1920" height="1200" alt="Pantalla de Inicio de Frame en modo claro" />
+            </div>
+            <div class="float-chip chip-a" aria-hidden="true">
+              <span class="chip-icon"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 1 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-7.5Z"/></svg></span>
+              <span><b>8 días</b><small>de racha</small></span>
+            </div>
+            <div class="float-chip chip-b" aria-hidden="true">
+              <span class="chip-icon grade">A</span>
+              <span><b>14,1</b><small>promedio semanal</small></span>
+            </div>
+            <div class="float-chip chip-c" aria-hidden="true">
+              <span class="chip-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+              <span><b>Letra sincronizada</b><small>también sin internet</small></span>
+            </div>
+          </div>
         </div>
 
-        <div class="hero-visual" data-reveal>
-          <div class="window tilt" id="hero-window">
-            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Frame · Inicio</span></div>
-            <img class="shot shot-dark" src="assets/img/app-inicio-dark.webp" width="1920" height="1200" alt="Pantalla de Inicio de Frame en modo oscuro: clima, horario semanal y rendimiento académico" fetchpriority="high" />
-            <img class="shot shot-light" src="assets/img/app-inicio-light.webp" width="1920" height="1200" alt="Pantalla de Inicio de Frame en modo claro: clima, horario semanal y rendimiento académico" />
-          </div>
-          <div class="float-chip chip-a" aria-hidden="true">
-            <span class="chip-icon amber"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 1 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-7.5Z"/></svg></span>
-            <span><b>8 días</b><small>de racha</small></span>
-          </div>
-          <div class="float-chip chip-b" aria-hidden="true">
-            <span class="grade">A</span>
-            <span><b>14,1</b><small>promedio semanal</small></span>
-          </div>
-          <div class="float-chip chip-c" aria-hidden="true">
-            <span class="chip-icon pink"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
-            <span><b>Letra sincronizada</b><small>también sin internet</small></span>
-          </div>
-        </div>
+        <ul class="trust" data-reveal aria-label="Lo esencial">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span><b>Windows 10 y 11</b><small>64 bits</small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.9a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0M12 20h.01"/><path d="M2 2l20 20"/></svg><span><b>Sin conexión</b><small>núcleo offline</small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span><b>Sin anuncios</b><small>y gratis</small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><b>Versiones firmadas</b><small>por VT Asvent</small></span></li>
+        </ul>
       </div>
     </section>
 
@@ -133,287 +131,304 @@
       </div>
     </div>
 
-    <!-- ============================================================ El problema -->
-    <section class="section" id="funciones">
+    <!-- ============================================================ 01 · Un solo lugar -->
+    <section class="section" id="uno">
       <div class="container">
         <header class="section-head" data-reveal>
           <span class="echo" aria-hidden="true">FRAME FRAME FRAME FRAME FRAME FRAME</span>
-          <p class="kicker">Todo en un solo lugar</p>
-          <h2 class="h2">De cuatro aplicaciones <span class="serif accent">a una sola.</span></h2>
-          <p class="sub">Un gestor de tareas, un cuaderno, un temporizador y un reproductor aparte: cada uno resuelve una parte y deja el resto sobre tus hombros. Frame los integra en una interfaz pensada para estudiar.</p>
+          <span class="index" aria-hidden="true">01</span>
+          <div>
+            <p class="kicker">Todo en un solo lugar</p>
+            <h2 class="h2">De cuatro aplicaciones <span class="accent">a una sola.</span></h2>
+          </div>
         </header>
 
-        <div class="converge" data-reveal>
-          <svg class="converge-lines" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M170 70 C 360 70, 400 210, 500 210" />
-            <path d="M830 70 C 640 70, 600 210, 500 210" />
-            <path d="M170 350 C 360 350, 400 210, 500 210" />
-            <path d="M830 350 C 640 350, 600 210, 500 210" />
-          </svg>
-          <div class="frag frag-1"><span class="frag-icon blue"><svg viewBox="0 0 24 24"><path d="m3 7 2 2 4-4M3 17l2 2 4-4M13 6h8M13 12h8M13 18h8"/></svg></span><b>Tareas</b><small>un gestor aparte</small></div>
-          <div class="frag frag-2"><span class="frag-icon violet"><svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4z"/><path d="M8 12h8M8 16h5"/></svg></span><b>Notas</b><small>un cuaderno aparte</small></div>
-          <div class="frag frag-3"><span class="frag-icon green"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg></span><b>Enfoque</b><small>un temporizador aparte</small></div>
-          <div class="frag frag-4"><span class="frag-icon pink"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><b>Música</b><small>un reproductor aparte</small></div>
-          <div class="converge-core">
-            <img src="assets/img/logo.svg" alt="" width="64" height="64" loading="lazy" />
-            <b>FRAME</b>
-            <small>todo, en un solo lugar</small>
-          </div>
+        <div class="grid-12">
+          <article class="panel col-5 problem" data-reveal>
+            <p class="kicker muted">El problema</p>
+            <h3 class="h3">La <span class="serif accent">fragmentación.</span></h3>
+            <p>Un gestor de tareas, un cuaderno, un temporizador y un reproductor aparte: cada uno resuelve una parte y deja el resto sobre tus hombros.</p>
+            <p class="strong">Frame los integra en una sola interfaz, pensada para estudiar.</p>
+          </article>
+
+          <article class="panel col-7 converge-panel" data-reveal>
+            <div class="converge">
+              <svg class="converge-lines" viewBox="0 0 600 340" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M110 48 C 220 48, 240 170, 300 170" />
+                <path d="M490 48 C 380 48, 360 170, 300 170" />
+                <path d="M110 292 C 220 292, 240 170, 300 170" />
+                <path d="M490 292 C 380 292, 360 170, 300 170" />
+              </svg>
+              <div class="frag frag-1"><span class="frag-icon"><svg viewBox="0 0 24 24"><path d="m3 7 2 2 4-4M3 17l2 2 4-4M13 6h8M13 12h8M13 18h8"/></svg></span><b>Tareas</b><small>un gestor aparte</small></div>
+              <div class="frag frag-2"><span class="frag-icon"><svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4z"/><path d="M8 12h8M8 16h5"/></svg></span><b>Notas</b><small>un cuaderno aparte</small></div>
+              <div class="frag frag-3"><span class="frag-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg></span><b>Enfoque</b><small>un temporizador aparte</small></div>
+              <div class="frag frag-4"><span class="frag-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><b>Música</b><small>un reproductor aparte</small></div>
+              <div class="converge-core">
+                <img src="assets/img/logo.svg" alt="" width="52" height="52" loading="lazy" />
+                <b>FRAME</b>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ Funciones -->
-    <section class="section section-tight">
-      <div class="container features">
-        <article class="feature" id="inicio" data-reveal>
-          <div class="feature-copy">
-            <p class="kicker"><span class="num">01</span> Inicio</p>
-            <h3 class="h3">Tu día, <span class="grad">de un vistazo.</span></h3>
-            <p>El clima por horas, tu horario, la próxima entrega y un <b>pulso académico</b> que calcula tu calificación del día, el promedio semanal y la racha de constancia.</p>
-            <ul class="tags">
-              <li>Calificación AD · A · B · C</li><li>Racha de días</li><li>Radar de asignaturas</li><li>Semana en datos</li>
-            </ul>
+    <!-- ============================================================ 02 · Funciones -->
+    <section class="section" id="funciones">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">FUNCIONES FUNCIONES FUNCIONES FUNCIONES</span>
+          <span class="index" aria-hidden="true">02</span>
+          <div>
+            <p class="kicker">Funciones</p>
+            <h2 class="h2">Lo que haces cada día, <span class="accent">ordenado.</span></h2>
           </div>
-          <figure class="window feature-shot">
-            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Inicio</span></div>
-            <img class="shot shot-dark" src="assets/img/app-inicio-dark.webp" width="1920" height="1200" loading="lazy" alt="Inicio de Frame: clima, horario y rendimiento académico" />
-            <img class="shot shot-light" src="assets/img/app-inicio-light.webp" width="1920" height="1200" loading="lazy" alt="Inicio de Frame en modo claro" />
-          </figure>
-        </article>
+        </header>
 
-        <article class="feature reverse" id="enfoque" data-reveal>
-          <div class="feature-copy">
-            <p class="kicker"><span class="num">02</span> Enfoque</p>
-            <h3 class="h3">Sesiones que <span class="grad grad-green">construyen disciplina.</span></h3>
-            <p>Temporizador o cronómetro, con una <b>ventana flotante</b> siempre visible. Al cerrar cada sesión valoras tu enfoque del 1 al 20 y Frame calcula tu calificación del día sobre 20.</p>
-            <ul class="tags">
-              <li>Ventana flotante</li><li>Metas por día</li><li>Calendario de calificaciones</li><li>Vídeos de estudio</li>
-            </ul>
-          </div>
-          <figure class="window feature-shot">
-            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Centro de enfoque</span></div>
-            <img class="shot shot-dark" src="assets/img/app-enfoque-dark.webp" width="1920" height="1200" loading="lazy" alt="Centro de enfoque de Frame con el temporizador y el calendario de calificaciones" />
-            <img class="shot shot-light" src="assets/img/app-enfoque-light.webp" width="1920" height="1200" loading="lazy" alt="Centro de enfoque de Frame en modo claro" />
-          </figure>
-        </article>
+        <div class="grid-12">
+          <article class="panel col-12 feature-wide" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Inicio</p>
+              <h3 class="h3">Tu día, <span class="accent">de un vistazo.</span></h3>
+              <p>El clima por horas, tu horario, la próxima entrega y un <b>pulso académico</b> que calcula tu calificación del día, el promedio semanal y tu racha de constancia.</p>
+              <ul class="tags"><li>Calificación AD · A · B · C</li><li>Racha de días</li><li>Radar de asignaturas</li><li>Semana en datos</li></ul>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Inicio</span></div>
+              <img class="shot shot-dark" src="assets/img/app-inicio-dark.webp" width="1920" height="1200" loading="lazy" alt="Inicio de Frame: clima, horario y rendimiento académico" />
+              <img class="shot shot-light" src="assets/img/app-inicio-light.webp" width="1920" height="1200" loading="lazy" alt="Inicio de Frame en modo claro" />
+            </figure>
+          </article>
 
-        <article class="feature" id="tareas" data-reveal>
-          <div class="feature-copy">
-            <p class="kicker"><span class="num">03</span> Tareas</p>
-            <h3 class="h3">Tareas con <span class="grad grad-amber">avance real.</span></h3>
-            <p>Importancia, dificultad, tipo, tiempo estimado y fecha de entrega. El avance no se inventa: sube cuando trabajas en la tarea durante una sesión de estudio.</p>
-            <ul class="tags">
-              <li>Recordatorios por tarea</li><li>Adjuntos</li><li>Filtros</li><li>Tareas incompletas</li>
-            </ul>
-          </div>
-          <figure class="window feature-shot">
-            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Galería de tareas</span></div>
-            <img class="shot shot-dark" src="assets/img/app-tareas-dark.webp" width="1920" height="1200" loading="lazy" alt="Galería de tareas de Frame con importancia, dificultad y avance" />
-            <img class="shot shot-light" src="assets/img/app-tareas-light.webp" width="1920" height="1200" loading="lazy" alt="Galería de tareas de Frame en modo claro" />
-          </figure>
-        </article>
+          <article class="panel col-6 feature-tall" id="enfoque" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Enfoque</p>
+              <h3 class="h3">Sesiones que <span class="accent">construyen disciplina.</span></h3>
+              <p>Temporizador o cronómetro, con una <b>ventana flotante</b> siempre visible. Al cerrar cada sesión valoras tu enfoque del 1 al 20 y Frame calcula tu calificación del día.</p>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Centro de enfoque</span></div>
+              <img class="shot shot-dark" src="assets/img/app-enfoque-dark.webp" width="1920" height="1200" loading="lazy" alt="Centro de enfoque de Frame con el temporizador y el calendario de calificaciones" />
+              <img class="shot shot-light" src="assets/img/app-enfoque-light.webp" width="1920" height="1200" loading="lazy" alt="Centro de enfoque de Frame en modo claro" />
+            </figure>
+          </article>
 
-        <article class="feature reverse" id="habitos" data-reveal>
-          <div class="feature-copy">
-            <p class="kicker"><span class="num">04</span> Hábitos</p>
-            <h3 class="h3">Hábitos que <span class="grad grad-pink">se ven crecer.</span></h3>
-            <p>Organizados en mañana, tarde y noche, diarios o solo los días que tocan. Cada fase tiene sus anillos: un segmento por día, que se colorea al cumplirlo.</p>
-            <ul class="tags">
-              <li>Fases del día</li><li>Días concretos</li><li>Mapa de constancia</li><li>Semana tipo</li>
-            </ul>
-          </div>
-          <figure class="window feature-shot">
-            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Registro de hábitos</span></div>
-            <img class="shot shot-dark" src="assets/img/app-anillos-dark.webp" width="1600" height="511" loading="lazy" alt="Anillos de hábitos de Frame por fase del día" />
-            <img class="shot shot-light" src="assets/img/app-anillos-light.webp" width="1600" height="511" loading="lazy" alt="Anillos de hábitos de Frame en modo claro" />
-          </figure>
-        </article>
+          <article class="panel col-6 feature-tall" id="tareas" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Tareas</p>
+              <h3 class="h3">Tareas con <span class="accent">avance real.</span></h3>
+              <p>Importancia, dificultad, tipo, tiempo estimado y fecha de entrega. El avance no se inventa: sube cuando trabajas en la tarea durante una sesión.</p>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Galería de tareas</span></div>
+              <img class="shot shot-dark" src="assets/img/app-tareas-dark.webp" width="1920" height="1200" loading="lazy" alt="Galería de tareas de Frame con importancia, dificultad y avance" />
+              <img class="shot shot-light" src="assets/img/app-tareas-light.webp" width="1920" height="1200" loading="lazy" alt="Galería de tareas de Frame en modo claro" />
+            </figure>
+          </article>
+
+          <article class="panel col-12 feature-wide reverse" id="habitos" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Hábitos</p>
+              <h3 class="h3">Hábitos que <span class="accent">se ven crecer.</span></h3>
+              <p>En mañana, tarde y noche, diarios o solo los días que tocan. Cada fase tiene sus anillos: un segmento por día, que se colorea al cumplirlo.</p>
+              <ul class="tags"><li>Fases del día</li><li>Días concretos</li><li>Mapa de constancia</li></ul>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Registro de hábitos</span></div>
+              <img class="shot shot-dark" src="assets/img/app-anillos-dark.webp" width="1600" height="511" loading="lazy" alt="Anillos de hábitos de Frame por fase del día" />
+              <img class="shot shot-light" src="assets/img/app-anillos-light.webp" width="1600" height="511" loading="lazy" alt="Anillos de hábitos de Frame en modo claro" />
+            </figure>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ============================================================ Mosaico -->
+    <!-- ============================================================ 03 · Más -->
     <section class="section" id="mas">
       <div class="container">
         <header class="section-head" data-reveal>
-          <span class="echo" aria-hidden="true">MÁS MÁS MÁS MÁS MÁS MÁS MÁS MÁS</span>
-          <p class="kicker">Y todavía hay más</p>
-          <h2 class="h2">Pensado para <span class="grad">todo el día.</span></h2>
+          <span class="echo" aria-hidden="true">MÁS MÁS MÁS MÁS MÁS MÁS MÁS MÁS MÁS</span>
+          <span class="index" aria-hidden="true">03</span>
+          <div>
+            <p class="kicker">Y todavía hay más</p>
+            <h2 class="h2">Pensado para <span class="accent">todo el día.</span></h2>
+          </div>
         </header>
 
         <div class="bento">
-          <article class="card card-music span-2" id="musica" data-reveal>
-            <div class="card-text">
-              <span class="badge badge-new">Nuevo</span>
+          <article class="panel tile tile-music" id="musica" data-reveal>
+            <div>
+              <span class="badge">Nuevo</span>
               <h3>Música con letras sincronizadas</h3>
               <p>Tu biblioteca local, con portadas oficiales y la letra que avanza con la canción. Se busca en cuatro fuentes, se comprueba que coincida con tu audio y queda guardada para verla sin conexión.</p>
             </div>
             <div class="lyrics" aria-hidden="true">
-              <p>Ajusta el tiempo de la letra</p>
+              <p>La letra avanza contigo</p>
+              <p>verso a verso, a tiempo</p>
               <p>medio segundo antes o después</p>
-              <p>y si no es la versión correcta</p>
-              <p>pide otra con un clic</p>
-              <p>todo queda en tu equipo</p>
+              <p>si hace falta ajustarla</p>
+              <p>y queda en tu equipo</p>
               <p>aunque no haya internet</p>
             </div>
           </article>
 
-          <article class="card" data-reveal>
-            <span class="card-icon red"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
             <h3>Grabaciones de voz</h3>
             <p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> y empieza a grabar al instante, desde cualquier pantalla.</p>
-            <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </article>
 
-          <article class="card" data-reveal>
-            <span class="card-icon amber"><svg viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg></span>
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg></span>
             <h3>Informes listos para entregar</h3>
             <p>General, rendimiento, pendientes y hábitos, en PDF, Word o Markdown.</p>
             <div class="doc" aria-hidden="true"><span></span><span></span><span></span><span></span><b>PDF</b></div>
           </article>
 
-          <article class="card" data-reveal>
-            <span class="card-icon blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
             <h3>Tu entorno digital</h3>
             <p>Gmail, YouTube, Drive, Google Calendar y Classroom dentro de Frame, con tu sesión de siempre.</p>
-            <div class="dots5" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           </article>
 
-          <article class="card" data-reveal>
-            <span class="card-icon green"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
             <h3>Institución Educativa</h3>
-            <p>Profesores, tutores y auxiliares publican desde la web; las tareas, recursos y comunicados llegan solos a Frame.</p>
+            <p>Profesores, tutores y auxiliares publican desde la web; tareas, recursos y comunicados llegan solos a Frame.</p>
           </article>
 
-          <article class="card" data-reveal>
-            <span class="card-icon violet"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 1 0 6 16.3"/><path d="M12 12v9m0 0-3-3m3 3 3-3"/></svg></span>
-            <h3>Respaldo en tu cuenta</h3>
-            <p>Entra con tu correo o con Google y tu estado académico se replica entre equipos.</p>
-          </article>
-
-          <article class="card" data-reveal>
-            <span class="card-icon pink"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
             <h3>Calendario</h3>
             <p>Local y sin conexión, o Google Calendar. Tus fechas de entrega aparecen solas.</p>
             <div class="cal" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
           </article>
 
-          <article class="card card-dark span-4" data-reveal>
-            <img class="card-bg" src="assets/img/audi-noche.webp" alt="" loading="lazy" />
-            <div class="card-text">
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 1 0 6 16.3"/><path d="M12 12v9m0 0-3-3m3 3 3-3"/></svg></span>
+            <h3>Respaldo en tu cuenta</h3>
+            <p>Entra con tu correo o con Google y tu estado académico se replica entre equipos.</p>
+          </article>
+
+          <article class="panel tile tile-native" data-reveal>
+            <img class="tile-bg" src="assets/img/audi-noche.webp" alt="" loading="lazy" />
+            <div class="tile-native-text">
+              <p class="kicker light">Ingeniería</p>
               <h3>Nativa, liviana y precisa</h3>
               <p>Construida con Tauri y Rust: usa el motor web del propio Windows en lugar de cargar un navegador entero, y funciona completa sin conexión.</p>
-              <ul class="stack">
-                <li>Tauri 2</li><li>Rust</li><li>React 19</li><li>TypeScript</li><li>Vite</li><li>Supabase</li>
-              </ul>
+              <ul class="stack"><li>Tauri 2</li><li>Rust</li><li>React 19</li><li>TypeScript</li><li>Vite</li><li>Supabase</li></ul>
             </div>
           </article>
+        </div>
+
+        <div class="panel stats" data-reveal aria-label="Frame en cifras">
+          <div class="stat"><b data-count="15">15</b><span>interfaces</span></div>
+          <div class="stat"><b data-count="4">4</b><span>periodos de informe</span></div>
+          <div class="stat"><b data-count="3">3</b><span>formatos de exportación</span></div>
+          <div class="stat"><b data-count="5">5</b><span>servicios de Google</span></div>
+          <div class="stat"><b data-count="4">4</b><span>fuentes de letras</span></div>
+          <div class="stat"><b>0</b><span>anuncios</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ Cifras -->
-    <section class="stats" aria-label="Frame en cifras">
-      <div class="container stats-grid">
-        <div class="stat" data-reveal><b data-count="15">15</b><span>interfaces</span></div>
-        <div class="stat" data-reveal><b data-count="4">4</b><span>periodos de informe</span></div>
-        <div class="stat" data-reveal><b data-count="3">3</b><span>formatos de exportación</span></div>
-        <div class="stat" data-reveal><b data-count="5">5</b><span>servicios de Google</span></div>
-        <div class="stat" data-reveal><b data-count="4">4</b><span>fuentes de letras</span></div>
-        <div class="stat" data-reveal><b>0</b><span>anuncios</span></div>
-      </div>
-    </section>
-
-    <!-- ============================================================ Seguridad -->
+    <!-- ============================================================ 04 · Seguridad -->
     <section class="section" id="seguridad">
       <div class="container">
         <header class="section-head" data-reveal>
           <span class="echo" aria-hidden="true">SEGURIDAD SEGURIDAD SEGURIDAD SEGURIDAD</span>
-          <p class="kicker">Seguridad y privacidad</p>
-          <h2 class="h2">Tus datos, <span class="serif accent">tuyos.</span></h2>
-          <p class="sub">Frame guarda todo primero en tu equipo. Lo que sale de él, sale cifrado y solo para lo que tú usas.</p>
+          <span class="index" aria-hidden="true">04</span>
+          <div>
+            <p class="kicker">Seguridad y privacidad</p>
+            <h2 class="h2">Tus datos, <span class="serif accent">tuyos.</span></h2>
+          </div>
         </header>
 
-        <div class="security">
-          <article class="sec-card" data-reveal>
-            <span class="card-icon blue"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div class="grid-12">
+          <article class="panel col-4 sec" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
             <h3>Versiones firmadas</h3>
             <p>Cada versión se firma criptográficamente. Frame solo acepta actualizaciones con la firma de VT Asvent, te avisa y se actualiza con tu permiso.</p>
           </article>
-          <article class="sec-card" data-reveal>
-            <span class="card-icon green"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+          <article class="panel col-4 sec" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
             <h3>Primero, tu equipo</h3>
             <p>Tu música, tus grabaciones y tus imágenes nunca salen de tu computadora. El resto se respalda en tu cuenta, cifrado en tránsito.</p>
           </article>
-          <article class="sec-card" data-reveal>
-            <span class="card-icon amber"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></svg></span>
+          <article class="panel col-4 sec" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
             <h3>Sin anuncios</h3>
             <p>Sin publicidad y sin venta de datos. Las métricas de uso son agregadas y nunca incluyen el contenido de tus tareas, notas ni grabaciones.</p>
           </article>
-        </div>
 
-        <div class="verify" data-reveal>
-          <div>
-            <p class="kicker">Verifica tu descarga</p>
-            <h3 class="h3 small">Comprueba que el instalador es el original.</h3>
-            <p>Abre PowerShell en la carpeta de descargas y compara la huella con la publicada aquí. Si no coincide, no lo ejecutes.</p>
-          </div>
-          <div class="verify-box">
-            <code class="cmd">Get-FileHash .\Frame-Setup.exe -Algorithm SHA256</code>
-            <div class="hash-row">
-              <span class="hash-label">SHA-256 · <span data-version-short>versión actual</span></span>
-              <button class="copy-btn" type="button" data-copy-hash aria-label="Copiar la huella SHA-256">Copiar</button>
+          <article class="panel col-12 verify" data-reveal>
+            <div>
+              <p class="kicker">Verifica tu descarga</p>
+              <h3 class="h3 small">Comprueba que el instalador es el original.</h3>
+              <p>Abre PowerShell en tu carpeta de descargas y compara la huella con la publicada aquí. Si no coincide, no lo ejecutes.</p>
             </div>
-            <code class="hash" data-sha>Se publica junto a cada versión.</code>
-          </div>
+            <div class="terminal">
+              <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>PowerShell</span></div>
+              <code class="cmd">Get-FileHash .\Frame-Setup.exe -Algorithm SHA256</code>
+              <div class="hash-row">
+                <span class="hash-label">SHA-256 · <span data-version-short>versión actual</span></span>
+                <button class="copy-btn" type="button" data-copy-hash aria-label="Copiar la huella SHA-256">Copiar</button>
+              </div>
+              <code class="hash" data-sha>Se publica junto a cada versión.</code>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ VT Asvent -->
+    <!-- ============================================================ 05 · VT Asvent -->
     <section class="section" id="vt-asvent">
       <div class="container">
         <header class="section-head" data-reveal>
           <span class="echo" aria-hidden="true">VT ASVENT VT ASVENT VT ASVENT VT ASVENT</span>
-          <p class="kicker">Detrás de Frame</p>
-          <h2 class="h2">Un producto de <span class="grad">VT Asvent.</span></h2>
-          <p class="sub">VT Asvent es la entidad de desarrollo de software detrás de Frame, emprendida en Huancayo, Perú, para construir software de alto valor real. Frame es su primer producto, no el último.</p>
+          <span class="index" aria-hidden="true">05</span>
+          <div>
+            <p class="kicker">Detrás de Frame</p>
+            <h2 class="h2">Un producto de <span class="accent">VT Asvent.</span></h2>
+          </div>
         </header>
 
-        <div class="brand-grid">
-          <figure class="photo photo-big" data-reveal>
+        <div class="grid-12 brand-grid">
+          <figure class="photo col-7 photo-big" data-reveal>
             <img src="assets/img/huancayo.webp" alt="Vista panorámica de Huancayo con la cordillera de los Andes" loading="lazy" />
             <figcaption><span class="kicker light">Huancayo · Junín, Perú</span><b>Donde nació VT Asvent</b></figcaption>
           </figure>
-          <figure class="photo photo-map tilt-left" data-reveal>
-            <img src="assets/img/huancayo-mapa.webp" alt="Mapa de las calles de Huancayo" loading="lazy" />
-          </figure>
-          <dl class="facts" data-reveal>
-            <div><dt>Origen</dt><dd>Huancayo, Perú</dd></div>
-            <div><dt>Área</dt><dd>Desarrollo de software</dd></div>
-            <div><dt>Primer producto</dt><dd data-version>Frame</dd></div>
-            <div><dt>Estado</dt><dd>En formalización</dd></div>
-          </dl>
-          <blockquote class="quote" data-reveal>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-1.5 5-4 6M15 7h4v4c0 3-1.5 5-4 6"/></svg>
-            <p>Software de alto valor real, no solo funcional.</p>
+          <article class="panel col-5 brand-text" data-reveal>
+            <p>VT Asvent es la entidad de desarrollo de software detrás de Frame, emprendida en Huancayo, Perú, para construir software de alto valor real. Frame es su primer producto, no el último.</p>
+            <dl class="facts">
+              <div><dt>Origen</dt><dd>Huancayo, Perú</dd></div>
+              <div><dt>Área</dt><dd>Desarrollo de software</dd></div>
+              <div><dt>Primer producto</dt><dd data-version>Frame</dd></div>
+              <div><dt>Estado</dt><dd>En formalización</dd></div>
+            </dl>
+          </article>
+          <blockquote class="panel col-7 quote" data-reveal>
+            <p>«Software de alto valor real, no solo funcional.»</p>
             <footer>El principio de VT Asvent</footer>
           </blockquote>
-          <figure class="photo photo-race tilt-right" data-reveal>
-            <img src="assets/img/audi-lms-1.webp" alt="Auto de competición en pista, símbolo de la ingeniería de precisión" loading="lazy" />
-            <figcaption><b>Ingeniería de precisión</b></figcaption>
+          <figure class="photo col-5 photo-map" data-reveal>
+            <img src="assets/img/huancayo-mapa.webp" alt="Mapa de las calles de Huancayo" loading="lazy" />
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ Preguntas -->
+    <!-- ============================================================ 06 · Preguntas -->
     <section class="section" id="preguntas">
-      <div class="container faq-wrap">
-        <header class="section-head left" data-reveal>
-          <p class="kicker">Preguntas frecuentes</p>
-          <h2 class="h2">Lo que <span class="serif accent">suelen preguntar.</span></h2>
-          <p class="sub">¿Otra duda? Dentro de Frame, en Ajustes, están la información del sistema, los términos y el canal para reportar errores.</p>
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">PREGUNTAS PREGUNTAS PREGUNTAS PREGUNTAS</span>
+          <span class="index" aria-hidden="true">06</span>
+          <div>
+            <p class="kicker">Preguntas frecuentes</p>
+            <h2 class="h2">Lo que <span class="serif accent">suelen preguntar.</span></h2>
+          </div>
         </header>
         <div class="faq" data-reveal>
           <details>
@@ -425,8 +440,8 @@
             <p>Sí. Asignaturas, tareas, sesiones de enfoque, hábitos, calendario local, música ya descargada y grabaciones funcionan sin conexión. Internet solo hace falta para entrar a tu cuenta, respaldar, descargar música y usar los servicios de Google.</p>
           </details>
           <details>
-            <summary>Windows me muestra un aviso de SmartScreen. ¿Es seguro?</summary>
-            <p>Ese aviso aparece con cualquier aplicación nueva que aún no tiene un certificado comercial. Elige «Más información» y luego «Ejecutar de todas formas». Si quieres total certeza, comprueba antes la huella SHA-256 del instalador en la sección de seguridad.</p>
+            <summary>Windows muestra un aviso de SmartScreen. ¿Es seguro?</summary>
+            <p>Ese aviso aparece con cualquier aplicación nueva que aún no tiene un certificado comercial. Elige «Más información» y luego «Ejecutar de todas formas». Si quieres total certeza, comprueba antes la huella SHA-256 del instalador.</p>
           </details>
           <details>
             <summary>¿Cómo se actualiza?</summary>
@@ -445,19 +460,22 @@
     </section>
 
     <!-- ============================================================ Descarga final -->
-    <section class="final" id="descargar">
-      <img class="final-bg" src="assets/img/everest.webp" alt="" loading="lazy" />
-      <div class="final-veil" aria-hidden="true"></div>
-      <span class="echo echo-final" aria-hidden="true">FRAME FRAME FRAME FRAME FRAME FRAME</span>
-      <div class="container final-inner" data-reveal>
-        <img class="final-logo" src="assets/img/logo.svg" alt="" width="72" height="72" loading="lazy" />
-        <h2 class="display small">Empieza hoy. <span class="grad">Gratis.</span></h2>
-        <p class="lead">Instálalo en un minuto y ordena tu semana desde la primera sesión.</p>
-        <a class="btn btn-primary btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe" data-download>
-          <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21v-8.5h-9.5v7.2Zm0-15.4v7.2H21V3l-9.5 1.3Z"/></svg>
-          <span class="btn-label">Descargar Frame<small><span data-version-short>Versión estable</span> · Windows 10 y 11 (64 bits)</small></span>
-        </a>
-        <p class="fine">Publicado el <span data-date>—</span> · <a href="https://github.com/GasparRojasDiego/frame-app/releases" rel="noopener noreferrer" target="_blank">Historial de versiones</a></p>
+    <section class="section section-last" id="descargar">
+      <div class="container">
+        <div class="final" data-reveal>
+          <img class="final-bg" src="assets/img/everest.webp" alt="" loading="lazy" />
+          <div class="final-veil" aria-hidden="true"></div>
+          <div class="final-inner">
+            <img class="final-logo" src="assets/img/logo.svg" alt="" width="64" height="64" loading="lazy" />
+            <h2 class="display small">Empieza hoy. <span class="accent-light">Gratis.</span></h2>
+            <p class="lead">Instálalo en un minuto y ordena tu semana desde la primera sesión.</p>
+            <a class="btn btn-primary btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe" data-download>
+              <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21v-8.5h-9.5v7.2Zm0-15.4v7.2H21V3l-9.5 1.3Z"/></svg>
+              <span class="btn-label">Descargar Frame<small><span data-version-short>Versión estable</span> · Windows 10 y 11</small></span>
+            </a>
+            <p class="fine">Publicado el <span data-date>—</span> · <a href="https://github.com/GasparRojasDiego/frame-app/releases" rel="noopener noreferrer" target="_blank">Historial de versiones</a></p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -466,7 +484,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a class="brand" href="#top"><img src="assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" /><span>FRAME</span></a>
+        <a class="brand" href="#top"><img src="assets/img/logo.svg" alt="" width="28" height="28" loading="lazy" /><span>FRAME</span></a>
         <p>Frame es un producto de <b>VT Asvent</b>, desarrollo de software · Huancayo, Perú.</p>
       </div>
       <nav class="footer-links" aria-label="Enlaces">
