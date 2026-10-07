@@ -18,7 +18,7 @@ Frame es un producto de **VT Asvent**. La seguridad de quienes lo usan es priori
 
 Incluye, si puedes:
 
-1. Qué componente afecta (la app de escritorio, la página de descarga o el portal para instituciones).
+1. Qué componente afecta (la app de escritorio, la app para Android o la página de descarga).
 2. Los pasos exactos para reproducirlo y la versión de Frame.
 3. El impacto que crees que tiene.
 
