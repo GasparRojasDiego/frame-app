@@ -14,7 +14,7 @@
 
 ---
 
-Frame reúne en una sola aplicación de escritorio lo que normalmente exige varias: **asignaturas, tareas, sesiones de enfoque, hábitos, calendario, música con letras sincronizadas, grabaciones de voz e informes**, con Gmail, YouTube, Drive, Google Calendar y Classroom integrados. Funciona sin conexión y guarda tus datos, primero, en tu equipo.
+Frame reúne en una sola aplicación de escritorio lo que normalmente exige varias: **asignaturas, tareas, sesiones de estudio, hábitos, calendario, tu música con su letra sincronizada, grabaciones de voz e informes**, con Gmail, YouTube, Google Calendar y Classroom integrados. Funciona sin conexión y guarda tus datos, primero, en tu equipo.
 
 - **Gratis y sin anuncios.**
 - **Windows 10 (1809+) y 11 de 64 bits.**
@@ -30,7 +30,7 @@ Get-FileHash .\Frame-Setup.exe -Algorithm SHA256
 
 ## Qué hay en este repositorio
 
-Solo la página de descarga y los instaladores oficiales de cada versión. **El código fuente de Frame es privado** y no forma parte de este repositorio.
+Solo la página de descarga (con la página de [Frame Descargas](https://gasparrojasdiego.github.io/frame-app/descargas/), cuyo motor se publica en [frame-descargas](https://github.com/GasparRojasDiego/frame-descargas)) y los instaladores oficiales de cada versión. **El código fuente de Frame es privado** y no forma parte de este repositorio.
 
 ## Seguridad
 
