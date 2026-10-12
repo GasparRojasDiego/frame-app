@@ -452,3 +452,14 @@ kbd { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; font-size
   .js [data-reveal] { opacity: 1; transform: none; }
   .tilt { transform: none; }
 }
+
+/* ---------- Nueva contraseña ---------- */
+.recover-form { display: flex; flex-direction: column; align-items: stretch; gap: 0.9rem; width: min(100%, 24rem); margin-top: 0.4rem; text-align: left; }
+.recover-form .lead { margin: 0 0 0.4rem; text-align: center; }
+.recover-field { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--fg); }
+.recover-field input { font: inherit; font-weight: 400; padding: 0.75rem 0.9rem; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--fg); outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.recover-field input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.18); }
+.recover-error { margin: 0; font-size: 0.85rem; color: hsl(0 72% 55%); text-align: center; }
+.recover-form .btn { justify-content: center; font-family: inherit; font-weight: 600; border: 0; cursor: pointer; }
+.recover-form .btn:disabled { opacity: 0.6; cursor: progress; }
+.recover [hidden] { display: none !important; }

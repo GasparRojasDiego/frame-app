@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://egshmkkmvtsrgrfwpzog.supabase.co; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'" />
+  <meta name="robots" content="noindex" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Nueva contraseña · Frame</title>
+  <link rel="icon" href="/frame-app/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/frame-app/assets/site.css" />
+  <script src="/frame-app/assets/theme.js"></script>
+  <script src="/frame-app/assets/recuperar.js" defer></script>
+</head>
+<body>
+  <main class="final notfound">
+    <div class="final-veil" aria-hidden="true"></div>
+    <span class="echo echo-final" aria-hidden="true">Contraseña Contraseña Contraseña Contraseña Contraseña</span>
+    <div class="container final-inner recover">
+      <img class="final-logo" src="/frame-app/assets/img/logo.svg" alt="" width="72" height="72" />
+      <h1 class="display small">Nueva <span class="grad">contraseña.</span></h1>
+
+      <!-- Paso 1: elegir la contraseña (se muestra si el enlace es válido). -->
+      <form id="recover-form" class="recover-form" hidden novalidate>
+        <p class="lead">Elige una contraseña nueva para tu cuenta de Frame. Que sea solo de Frame, no la de tu correo.</p>
+        <label class="recover-field">
+          <span>Contraseña nueva</span>
+          <input id="pass1" type="password" autocomplete="new-password" minlength="6" required />
+        </label>
+        <label class="recover-field">
+          <span>Repite la contraseña</span>
+          <input id="pass2" type="password" autocomplete="new-password" minlength="6" required />
+        </label>
+        <p id="recover-error" class="recover-error" role="alert" hidden></p>
+        <button id="recover-submit" class="btn btn-primary btn-lg" type="submit">Guardar contraseña</button>
+      </form>
+
+      <!-- Paso 2: listo. -->
+      <div id="recover-done" hidden>
+        <p class="lead">Listo. Vuelve a Frame e inicia sesión con tu correo y tu contraseña nueva.</p>
+        <a class="btn btn-primary btn-lg" href="/frame-app/">Ir a la página de Frame</a>
+      </div>
+
+      <!-- Enlace caducado, ya usado o abierto sin pasar por el correo. -->
+      <div id="recover-invalid" hidden>
+        <p class="lead">Este enlace ya no sirve: caduca al cabo de una hora y solo se puede usar una vez. En Frame, pulsa «¿Olvidaste tu contraseña?» para recibir otro.</p>
+        <a class="btn btn-primary btn-lg" href="/frame-app/">Volver a Frame</a>
+      </div>
+
+      <noscript><p class="lead">Esta página necesita JavaScript para guardar tu contraseña nueva.</p></noscript>
+    </div>
+  </main>
+</body>
+</html>
