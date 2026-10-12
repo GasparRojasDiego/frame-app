@@ -1,0 +1,15 @@
+/* Política de Privacidad: lectura cómoda de un texto largo. */
+.legal { max-width: 46rem; padding-top: 7rem; padding-bottom: 5rem; line-height: 1.7; }
+.legal h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; margin: 0 0 1.5rem; }
+.legal h2 { font-size: 1.3rem; margin: 2.5rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.legal h3 { font-size: 1.05rem; margin: 1.75rem 0 0.5rem; }
+.legal p, .legal li { color: var(--fg); }
+.legal ul { padding-left: 1.25rem; }
+.legal li { margin: 0.35rem 0; }
+.legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.legal .tbl { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--border); border-radius: 12px; }
+.legal table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
+.legal th { background: var(--card); }
+.legal tr:last-child td { border-bottom: 0; }
+@media (max-width: 600px) { .legal { padding-top: 5.5rem; } }
