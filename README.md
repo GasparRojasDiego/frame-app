@@ -14,10 +14,10 @@
 
 ---
 
-Frame reúne en una sola aplicación de escritorio lo que normalmente exige varias: **asignaturas, tareas, sesiones de estudio, hábitos, calendario, tu música con su letra sincronizada, grabaciones de voz e informes**, con Gmail, YouTube, Google Calendar y Classroom integrados. Funciona sin conexión y guarda tus datos, primero, en tu equipo.
+Frame reúne en una sola aplicación de escritorio lo que normalmente exige varias: **asignaturas, tareas, sesiones de estudio, hábitos, calendario, tu música con su letra sincronizada, grabaciones de voz e informes**, con Gmail, YouTube y Classroom integrados. Funciona sin conexión, guarda tus datos primero en tu equipo y está en español y en inglés.
 
 - **Gratis y sin anuncios.**
-- **Windows 10 (1809+) y 11 de 64 bits.**
+- **Windows 10 (1809+) y 11 de 64 bits**, y Android 8 o superior (tablets y teléfonos).
 - **Actualizaciones firmadas:** la app avisa de cada versión nueva y se actualiza con un clic.
 
 ## Verificar la descarga
