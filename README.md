@@ -6,7 +6,7 @@
 <p align="center"><b>Tu sistema operativo de estudio.</b><br/>Un producto de <b>VT Asvent</b> · Huancayo, Perú</p>
 
 <p align="center">
-  <a href="https://gasparrojasdiego.github.io/frame-app/"><b>Página oficial</b></a> ·
+  <a href="https://vt-asvent.github.io/frame-app/"><b>Página oficial</b></a> ·
   <a href="https://github.com/GasparRojasDiego/frame-app/releases/latest/download/Frame-Setup.exe"><b>Descargar para Windows</b></a> ·
   <a href="https://github.com/GasparRojasDiego/frame-app/releases">Versiones</a> ·
   <a href="SECURITY.md">Seguridad</a>
@@ -22,7 +22,7 @@ Frame reúne en una sola aplicación de escritorio lo que normalmente exige vari
 
 ## Verificar la descarga
 
-Cada versión publica su huella SHA-256 en la [página oficial](https://gasparrojasdiego.github.io/frame-app/#seguridad) y en las notas del release:
+Cada versión publica su huella SHA-256 en la [página oficial](https://vt-asvent.github.io/frame-app/#seguridad) y en las notas del release:
 
 ```powershell
 Get-FileHash .\Frame-Setup.exe -Algorithm SHA256
@@ -30,7 +30,7 @@ Get-FileHash .\Frame-Setup.exe -Algorithm SHA256
 
 ## Qué hay en este repositorio
 
-Solo la página de descarga (con la página de [Frame Descargas](https://gasparrojasdiego.github.io/frame-app/descargas/), cuyo motor se publica en [frame-descargas](https://github.com/GasparRojasDiego/frame-descargas)) y los instaladores oficiales de cada versión. **El código fuente de Frame es privado** y no forma parte de este repositorio.
+Solo la página de descarga (con la página de [Frame Descargas](https://vt-asvent.github.io/frame-app/descargas/), cuyo motor se publica en [frame-descargas](https://github.com/GasparRojasDiego/frame-descargas)) y los instaladores oficiales de cada versión. **El código fuente de Frame es privado** y no forma parte de este repositorio.
 
 ## Seguridad
 
