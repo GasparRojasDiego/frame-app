@@ -30,7 +30,7 @@ Get-FileHash .\Frame-Setup.exe -Algorithm SHA256
 
 ## Qué hay en este repositorio
 
-Solo la página de descarga (con la página de [Frame Descargas](https://vt-asvent.github.io/frame-app/descargas/), cuyo motor se publica en [frame-descargas](https://github.com/GasparRojasDiego/frame-descargas)) y los instaladores oficiales de cada versión. **El código fuente de Frame es privado** y no forma parte de este repositorio.
+Solo la página de descarga vive en este repositorio: el código de la app está en [vt-asvent/Frame](https://github.com/vt-asvent/Frame).
 
 ## Seguridad
 
