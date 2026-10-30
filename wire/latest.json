@@ -10,7 +10,7 @@
   },
   "wire": {
     "size": 3728585,
-    "minimum": "0.1.2",
+    "minimum": "0.1.0",
     "notes_en": "Your vault in any Claude chat, Drive inside the app, a profile, English and this updater."
   }
 }
