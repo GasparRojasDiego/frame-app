@@ -1,0 +1,16 @@
+{
+  "version": "0.1.2",
+  "notes": "Tu bóveda en cualquier chat de Claude, Drive dentro de la app, perfil, inglés y este actualizador.",
+  "pub_date": "2026-10-30T22:59:41Z",
+  "platforms": {
+    "windows-x86_64": {
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.2/Wire_0.1.2_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZmowWW5tUHBqb0puYzQybDVVaG1ybDNsZkM1d0t6ZGtqcTc2RTlvTnlmcmNmWlRSNE1yRmdLZmRLU09taW5LMkhFNGVEYkl1a3V2dlJWYXU2eDgwVHcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNDAwMDA2CWZpbGU6V2lyZV8wLjEuMl94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjIKQWx6YmJJMzV1UVIveVp6ZWg1aWdZWWlqeVRCNWJzUlF5YjlicE5FR2hZRk9aVmpIS1hQOVArbGFJM0hrVnN1b1lKWnVyaDRiZ1lhL2tCK0VWRy9PQUE9PQo="
+    }
+  },
+  "wire": {
+    "size": 3728585,
+    "minimum": "0.1.2",
+    "notes_en": "Your vault in any Claude chat, Drive inside the app, a profile, English and this updater."
+  }
+}

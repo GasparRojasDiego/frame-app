@@ -8,7 +8,7 @@
   <title>Política de Privacidad · Wire</title>
   <meta name="description" content="Qué datos trata Wire, para qué y qué control tienes. VT Asvent." />
   <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="../logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="../logo.png" type="image/png" />
   <link rel="stylesheet" href="../../assets/site.css" />
   <link rel="stylesheet" href="../../privacidad/privacidad.css" />
   <script src="../../assets/theme.js"></script>
@@ -17,47 +17,84 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="../" aria-label="Wire, inicio">
-        <img src="../logo.svg" alt="" width="32" height="32" />
+        <img src="../logo.png" alt="" width="32" height="32" />
         <span>WIRE</span>
       </a>
       <div class="nav-actions">
+        <a class="btn btn-soft btn-sm" href="en.html" hreflang="en">English</a>
         <a class="btn btn-soft btn-sm" href="../">Volver a Wire</a>
       </div>
     </div>
   </header>
   <main id="contenido" class="container legal">
     <h1>Política de Privacidad de Wire</h1>
-    <p><strong>Versión 1.1 · Vigente desde el 29 de octubre de 2026</strong> (añade la sincronización entre tus equipos)</p>
+    <p><strong>Versión 1.2 · Vigente desde el 30 de octubre de 2026</strong> (añade la nube opcional de Wire y el acceso desde Claude). <a href="en.html" hreflang="en" lang="en">Read it in English</a>.</p>
 
     <h2>1. Responsable</h2>
     <p><strong>VT Asvent</strong>, entidad de desarrollo de software en formación, Perú. Correo para asuntos de privacidad: <strong>vt.asvent@gmail.com</strong>.</p>
 
     <h2>2. Principio</h2>
-    <p>Wire no tiene servidores propios. Funciona en tus equipos y sincroniza tus archivos directamente con tu Google Drive. VT Asvent no recibe, no ve y no guarda tus archivos ni tus datos.</p>
+    <p>Wire funciona en tus equipos y sincroniza tus archivos directamente con tu Google Drive. Mientras no actives nada más, tus archivos no pasan por ningún servidor de VT Asvent.</p>
+    <p>La <strong>nube de Wire</strong> es opcional. Solo existe si la activas, para usar tu bóveda desde Claude y para sumar equipos nuevos con un solo inicio de sesión. VT Asvent no usa lo que guarda para nada distinto de prestarte esas funciones.</p>
 
-    <h2>3. Qué datos usa Wire y dónde quedan</h2>
+    <h2>3. Qué datos usa Wire en tus equipos</h2>
     <ul>
       <li><strong>Los archivos de la carpeta que eliges</strong> (tu bóveda de Obsidian): Wire los lee en tu equipo y los sube a la carpeta de Wire en tu Google Drive, y baja a esa misma carpeta de tu equipo lo que tus otros equipos dejaron allí. Fuera de esa carpeta, Wire no lee ni escribe nada de tu equipo.</li>
-      <li><strong>El permiso de acceso de cada cuenta de Google</strong> que conectas: se guarda solo en tu equipo (en Windows, cifrado con la protección de datos del sistema; en Android, en la carpeta privada de la app, excluida de las copias de seguridad).</li>
-      <li><strong>Correo, nombre y espacio de almacenamiento</strong> de cada cuenta: Wire los consulta a Google para mostrarlos en la app y decidir en qué cuenta guardar cada archivo. Quedan solo en tu equipo.</li>
-      <li><strong>Un registro de la sincronización</strong> (qué archivo se subió o se bajó, cuándo y con qué cuenta): queda solo en tu equipo.</li>
+      <li><strong>El permiso de acceso de cada cuenta de Google</strong> que conectas: se guarda en tu equipo (en Windows, cifrado con la protección de datos del sistema; en Android, en la carpeta privada de la app, excluida de las copias de seguridad).</li>
+      <li><strong>Correo, nombre, foto y espacio de almacenamiento</strong> de cada cuenta: Wire los consulta a Google para mostrarlos en la app y decidir en qué cuenta guardar cada archivo.</li>
+      <li><strong>Tu perfil y tus ajustes</strong> (nombre, foto, nombre del equipo, idioma y apariencia).</li>
+      <li><strong>Un registro de la sincronización</strong> (qué archivo se subió o se bajó, cuándo y con qué cuenta).</li>
     </ul>
 
-    <h2>4. Permisos de Google</h2>
-    <p>Wire solicita únicamente el permiso <code>https://www.googleapis.com/auth/drive.file</code>: ver, crear, descargar, modificar y mandar a la papelera solo los archivos de Google Drive que el mismo Wire crea. Wire no puede ver el resto de tu Drive, tu correo ni ningún otro dato de tu cuenta.</p>
-    <p>El uso y la transferencia que Wire hace de la información recibida de las APIs de Google cumple la <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Datos del Usuario de los Servicios de las APIs de Google</a>, incluidos los requisitos de Uso Limitado. Esa información se usa solo para sincronizar tus archivos con tu Drive; no se usa para publicidad, no se vende y no se transfiere a terceros.</p>
-
-    <h2>5. Lo que Wire no hace</h2>
-    <p>No usa publicidad, no mide tu uso, no envía estadísticas ni informes de errores, no crea cuentas propias y no comparte datos con nadie. El único destino de tus archivos es tu Google Drive, bajo las condiciones de Google.</p>
-
-    <h2>6. Tu control</h2>
+    <h2>4. La nube de Wire (opcional)</h2>
+    <p>Solo funciona si pulsas <strong>Activar</strong> en la pantalla Claude de la app. Corre en Cloudflare (Workers y D1), que la aloja por encargo de VT Asvent, y guarda:</p>
     <ul>
-      <li>Quitar una cuenta en Wire borra de tu equipo su permiso de acceso; tus archivos siguen en tu Drive.</li>
-      <li>Puedes revocar el acceso de Wire en cualquier momento desde <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
-      <li>Desinstalar Wire borra sus datos de tu equipo. Lo subido a tu Drive es tuyo y lo administras desde Google Drive.</li>
+      <li><strong>El permiso de acceso de cada cuenta de Google que conectaste</strong>, cifrado con AES-256-GCM. Permite que la nube trabaje con tu Drive aunque tus equipos estén apagados. Solo sale de allí hacia otro de tus equipos, cuando inicias sesión en él con una de esas cuentas.</li>
+      <li><strong>El correo y el espacio de cada cuenta.</strong></li>
+      <li><strong>Un índice de la carpeta de Wire en tu Drive</strong>: nombre, ruta, tamaño, fechas y suma de control de cada archivo.</li>
+      <li><strong>El texto de tus notas, PDF y documentos de esa carpeta</strong>, para poder buscar en ellos. Este texto no lleva un cifrado propio de Wire, porque debe poder buscarse; queda protegido por el cifrado en reposo de Cloudflare.</li>
+      <li><strong>El estado de tus equipos</strong>: nombre, sistema, versión, última conexión, archivos pendientes y las órdenes que Claude les dejó.</li>
+      <li><strong>Tu perfil</strong> (nombre, foto e idioma), para que sea el mismo en todos tus equipos.</li>
+      <li><strong>Datos técnicos del acceso de Claude</strong>: la aplicación registrada, los códigos de un solo uso y las sesiones, que caducan.</li>
+    </ul>
+    <p>Para leer un PDF o un documento de Office, la nube crea por un momento una copia de Google Docs en tu Drive, extrae el texto y borra esa copia.</p>
+
+    <h2>5. Claude</h2>
+    <p>Si conectas Wire a Claude, de Anthropic, Claude puede buscar, leer, crear, editar, mover y mandar a la papelera archivos de la carpeta de Wire, ver el estado de tus equipos y pedirles que sincronicen o se pausen. Solo se autoriza con el código de un solo uso que muestra tu app, y hace lo que tú le pides en tu conversación.</p>
+    <p>Lo que Claude lee pasa a esa conversación y desde ese momento queda bajo las condiciones y la política de privacidad de Anthropic. VT Asvent no recibe tus conversaciones.</p>
+
+    <h2>6. Permisos de Google</h2>
+    <p>Wire solicita únicamente el permiso <code>https://www.googleapis.com/auth/drive.file</code>: ver, crear, descargar, modificar y mandar a la papelera solo los archivos de Google Drive que el mismo Wire crea. Wire no puede ver el resto de tu Drive, tu correo ni ningún otro dato de tu cuenta.</p>
+    <p>El uso y la transferencia que Wire hace de la información recibida de las APIs de Google cumple la <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Datos del Usuario de los Servicios de las APIs de Google</a>, incluidos los requisitos de Uso Limitado. Esa información se usa solo para sincronizar tus archivos y para las funciones de la nube de Wire que activas. No se usa para publicidad, no se vende, no se usa para entrenar modelos de inteligencia artificial y solo llega a Claude cuando tú lo conectas y se lo pides.</p>
+
+    <h2>7. Lo que Wire no hace</h2>
+    <p>No usa publicidad, no mide tu uso, no envía estadísticas ni informes de errores y no crea cuentas propias: te identificas con tu cuenta de Google. No vende tus datos ni los comparte con nadie fuera de los servicios de la sección siguiente.</p>
+
+    <h2>8. Servicios de terceros</h2>
+    <ul>
+      <li><strong>Google</strong> (Drive e inicio de sesión): siempre, porque tus archivos viven en tu Drive.</li>
+      <li><strong>Cloudflare</strong> (alojamiento de la nube): solo si la activas. Puede tratar datos técnicos de conexión, como la dirección IP, para operar y proteger su red.</li>
+      <li><strong>Anthropic</strong> (Claude): solo si conectas Wire a Claude.</li>
+      <li><strong>GitHub</strong> (actualizaciones): Wire consulta allí si hay una versión nueva y la descarga. No envía datos personales; GitHub recibe la dirección IP, como cualquier web.</li>
+    </ul>
+    <p>Estos servicios operan fuera del Perú, de modo que usarlos implica un flujo transfronterizo de datos.</p>
+
+    <h2>9. Tu control</h2>
+    <ul>
+      <li><strong>Borrar todo de la nube</strong> (pantalla Claude): elimina de inmediato tus llaves, el índice, los textos, tu perfil, tus equipos y los accesos de Claude. Las copias técnicas de recuperación de Cloudflare desaparecen solas en un máximo de 30 días. Tus archivos siguen en tu Drive.</li>
+      <li><strong>Quitar una cuenta</strong> borra su permiso de acceso de tu equipo y, si la nube está activa, también de la nube. Tus archivos siguen en tu Drive.</li>
+      <li><strong>Cerrar sesión</strong> quita de ese equipo todas las cuentas y lo desvincula de la nube. Tu bóveda sigue en tu equipo y en tu Drive.</li>
+      <li>Puedes retirarle el acceso a Wire desde <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> y a Claude desde los conectores de Claude.</li>
+      <li>Desinstalar Wire borra sus datos de ese equipo. Lo subido a tu Drive es tuyo y lo administras desde Google Drive.</li>
     </ul>
 
-    <h2>7. Cambios y contacto</h2>
+    <h2>10. Seguridad</h2>
+    <p>Todas las comunicaciones usan HTTPS. Los permisos de Google van cifrados en tu equipo y en la nube, y Cloudflare cifra la base de datos en reposo con AES-256. Los accesos de Claude caducan cada hora y se renuevan por rotación. Ninguna medida es absoluta: si detectamos un incidente que afecte tus datos, te avisaremos por los medios disponibles.</p>
+
+    <h2>11. Conservación</h2>
+    <p>Lo que está en tus equipos dura mientras tengas Wire. Lo que está en la nube dura mientras la tengas activa; se actualiza cuando cambian tus archivos y desaparece al borrarla.</p>
+
+    <h2>12. Cambios y contacto</h2>
     <p>Si esta Política cambia, la nueva versión se publicará en esta misma página con su fecha. Para cualquier consulta o para ejercer tus derechos conforme a la Ley 29733 de Protección de Datos Personales del Perú, escribe a <strong>vt.asvent@gmail.com</strong>.</p>
   </main>
 </body>

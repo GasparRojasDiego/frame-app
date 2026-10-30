@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Privacy Policy · Wire</title>
+  <meta name="description" content="What data Wire handles, why, and what control you have. VT Asvent." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../logo.png" type="image/png" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../privacidad/privacidad.css" />
+  <script src="../../assets/theme.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="../" aria-label="Wire, home">
+        <img src="../logo.png" alt="" width="32" height="32" />
+        <span>WIRE</span>
+      </a>
+      <div class="nav-actions">
+        <a class="btn btn-soft btn-sm" href="./" hreflang="es">Español</a>
+        <a class="btn btn-soft btn-sm" href="../">Back to Wire</a>
+      </div>
+    </div>
+  </header>
+  <main id="contenido" class="container legal">
+    <h1>Wire Privacy Policy</h1>
+    <p><strong>Version 1.2 · Effective October 30, 2026</strong> (adds Wire's optional cloud and access from Claude). This is a translation; the <a href="./" hreflang="es">Spanish version</a> prevails if they differ.</p>
+
+    <h2>1. Who is responsible</h2>
+    <p><strong>VT Asvent</strong>, a software development entity in formation, Peru. Privacy contact: <strong>vt.asvent@gmail.com</strong>.</p>
+
+    <h2>2. Principle</h2>
+    <p>Wire runs on your devices and syncs your files directly with your Google Drive. Unless you turn on something else, your files do not go through any VT Asvent server.</p>
+    <p>The <strong>Wire cloud</strong> is optional. It only exists if you turn it on, to use your vault from Claude and to add new devices with a single sign-in. VT Asvent uses what it stores for nothing other than providing those features.</p>
+
+    <h2>3. What data Wire uses on your devices</h2>
+    <ul>
+      <li><strong>The files in the folder you choose</strong> (your Obsidian vault): Wire reads them on your device and uploads them to the Wire folder in your Google Drive, and downloads to that same folder on your device whatever your other devices left there. Outside that folder, Wire does not read or write anything on your device.</li>
+      <li><strong>The access permission of each Google account</strong> you connect: stored on your device (on Windows, encrypted with the system's data protection; on Android, in the app's private folder, excluded from backups).</li>
+      <li><strong>Email, name, photo and storage space</strong> of each account: Wire asks Google for them to show them in the app and to decide which account stores each file.</li>
+      <li><strong>Your profile and settings</strong> (name, photo, device name, language and appearance).</li>
+      <li><strong>A sync log</strong> (which file was uploaded or downloaded, when, and with which account).</li>
+    </ul>
+
+    <h2>4. The Wire cloud (optional)</h2>
+    <p>It only runs if you press <strong>Turn on</strong> on the app's Claude screen. It runs on Cloudflare (Workers and D1), which hosts it on behalf of VT Asvent, and it stores:</p>
+    <ul>
+      <li><strong>The access permission of each Google account you connected</strong>, encrypted with AES-256-GCM. It lets the cloud work with your Drive while your devices are off. It only leaves the cloud towards another of your devices, when you sign in there with one of those accounts.</li>
+      <li><strong>The email and storage space of each account.</strong></li>
+      <li><strong>An index of the Wire folder in your Drive</strong>: the name, path, size, dates and checksum of each file.</li>
+      <li><strong>The text of your notes, PDFs and documents in that folder</strong>, so they can be searched. This text has no encryption of Wire's own, because it must be searchable; it is protected by Cloudflare's encryption at rest.</li>
+      <li><strong>The status of your devices</strong>: name, system, version, last connection, pending files and the commands Claude left for them.</li>
+      <li><strong>Your profile</strong> (name, photo and language), so it is the same on all your devices.</li>
+      <li><strong>Technical data for Claude's access</strong>: the registered application, the one-time codes and the sessions, which expire.</li>
+    </ul>
+    <p>To read a PDF or an Office document, the cloud briefly creates a Google Docs copy in your Drive, extracts the text and deletes that copy.</p>
+
+    <h2>5. Claude</h2>
+    <p>If you connect Wire to Claude, by Anthropic, Claude can search, read, create, edit, move and send to the trash files in the Wire folder, see the status of your devices and ask them to sync or pause. It can only be authorized with the one-time code your app shows, and it does what you ask in your conversation.</p>
+    <p>What Claude reads becomes part of that conversation and, from then on, is under Anthropic's terms and privacy policy. VT Asvent does not receive your conversations.</p>
+
+    <h2>6. Google permissions</h2>
+    <p>Wire only requests the <code>https://www.googleapis.com/auth/drive.file</code> permission: to see, create, download, modify and send to the trash only the Google Drive files that Wire itself creates. Wire cannot see the rest of your Drive, your email or any other data in your account.</p>
+    <p>Wire's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. That information is used only to sync your files and for the Wire cloud features you turn on. It is not used for advertising, it is not sold, it is not used to train artificial intelligence models, and it only reaches Claude when you connect it and ask it to.</p>
+
+    <h2>7. What Wire does not do</h2>
+    <p>It has no advertising, does not measure your usage, does not send statistics or error reports, and does not create accounts of its own: you identify yourself with your Google account. It does not sell your data or share it with anyone outside the services in the next section.</p>
+
+    <h2>8. Third-party services</h2>
+    <ul>
+      <li><strong>Google</strong> (Drive and sign-in): always, because your files live in your Drive.</li>
+      <li><strong>Cloudflare</strong> (cloud hosting): only if you turn it on. It may process technical connection data, such as the IP address, to run and protect its network.</li>
+      <li><strong>Anthropic</strong> (Claude): only if you connect Wire to Claude.</li>
+      <li><strong>GitHub</strong> (updates): Wire checks there for a new version and downloads it. It sends no personal data; GitHub receives the IP address, like any website.</li>
+    </ul>
+    <p>These services operate outside Peru, so using them involves a cross-border flow of data.</p>
+
+    <h2>9. Your control</h2>
+    <ul>
+      <li><strong>Erase everything from the cloud</strong> (Claude screen): immediately removes your keys, the index, the text, your profile, your devices and Claude's access. Cloudflare's technical recovery copies disappear on their own within 30 days at most. Your files stay in your Drive.</li>
+      <li><strong>Removing an account</strong> deletes its access permission from your device and, if the cloud is on, from the cloud too. Your files stay in your Drive.</li>
+      <li><strong>Signing out</strong> removes all accounts from that device and unlinks it from the cloud. Your vault stays on your device and in your Drive.</li>
+      <li>You can revoke Wire's access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> and Claude's access from Claude's connectors.</li>
+      <li>Uninstalling Wire deletes its data from that device. What you uploaded to your Drive is yours and you manage it from Google Drive.</li>
+    </ul>
+
+    <h2>10. Security</h2>
+    <p>All communication uses HTTPS. Google permissions are encrypted on your device and in the cloud, and Cloudflare encrypts the database at rest with AES-256. Claude's access expires every hour and is renewed by rotation. No measure is absolute: if we detect an incident affecting your data, we will tell you through the means available.</p>
+
+    <h2>11. Retention</h2>
+    <p>What is on your devices lasts as long as you keep Wire. What is in the cloud lasts as long as you keep it on; it is updated when your files change and disappears when you erase it.</p>
+
+    <h2>12. Changes and contact</h2>
+    <p>If this Policy changes, the new version will be published on this same page with its date. For any question, or to exercise your rights under Peru's Personal Data Protection Law 29733, write to <strong>vt.asvent@gmail.com</strong>.</p>
+  </main>
+</body>
+</html>
