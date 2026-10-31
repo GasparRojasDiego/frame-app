@@ -1,16 +1,16 @@
 {
-  "version": "0.1.3",
-  "notes": "Android: conectar una cuenta de Google ya no falla con «Sin conexión con Google» ni se queda en una página en blanco.",
-  "pub_date": "2026-10-31T15:17:44Z",
+  "version": "0.1.4",
+  "notes": "Ajustes se abre desde tu foto y tu nombre en la barra lateral. Wire empieza a compartir estadísticas de uso, nunca tus archivos: te avisa antes y puedes apagarlas en Ajustes.",
+  "pub_date": "2026-10-31T18:07:35Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.3/Wire_0.1.3_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnVTN2hjdVdiRFdxMTRxVHdIZFdSVUs3cEwwMW4zNDVsckhZUWpOWExuYWE5SW5ranhtV0tMbS9HUVZndjRkaXZZajZFQm5NdUxPTU9ucTcrVDlLZHdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNDU3MTc3CWZpbGU6V2lyZV8wLjEuM194NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjMKQ0crMEFuUm9LMGZRWDc0VjZwc0Rzblg0TCtONTN1aFhJS3hEK1JvczJQeUNFUkhWMzgxbjFUdmxEWkhKdnhnd1pXbEQ4UmpnUHlrK1gyRENmSkVMREE9PQo="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.4/Wire_0.1.4_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZmtGNlk3RGZ3ODArQVBvYXdYVTJtSXZ3YXU0dVVDdnBlWlR6M0lxUHJHUFBFWkhEbGQ2SFg1UVdCdzJqNzVnTUpyeG1TQXBKV05kNzhpWTg3N3dCeUE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNDY4MDUzCWZpbGU6V2lyZV8wLjEuNF94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjQKVG8xTTZkcjY1a0NvVVpEaHZmM1A3eWNXdFdTSmVBSDVLT3lhSTU2M0JiWDZFc0VHY1Bhd2lHZmdyYVpxVjVtK2lzdnhBN3NLVDVIeXN5bEpnNXVPQXc9PQo="
     }
   },
   "wire": {
-    "size": 3728273,
+    "size": 3758209,
     "minimum": "0.1.0",
-    "notes_en": "Android: connecting a Google account no longer fails with “No connection to Google” or stops at a blank page."
+    "notes_en": "Settings now opens from your photo and name in the sidebar. Wire starts sharing usage statistics, never your files: it tells you first and you can turn them off in Settings."
   }
 }

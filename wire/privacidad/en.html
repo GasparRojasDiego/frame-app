@@ -28,7 +28,7 @@
   </header>
   <main id="contenido" class="container legal">
     <h1>Wire Privacy Policy</h1>
-    <p><strong>Version 1.2 · Effective October 30, 2026</strong> (adds Wire's optional cloud and access from Claude). This is a translation; the <a href="./" hreflang="es">Spanish version</a> prevails if they differ.</p>
+    <p><strong>Version 1.3 · Effective October 31, 2026</strong> (adds usage statistics and how to turn them off). This is a translation; the <a href="./" hreflang="es">Spanish version</a> prevails if they differ.</p>
 
     <h2>1. Who is responsible</h2>
     <p><strong>VT Asvent</strong>, a software development entity in formation, Peru. Privacy contact: <strong>vt.asvent@gmail.com</strong>.</p>
@@ -36,6 +36,7 @@
     <h2>2. Principle</h2>
     <p>Wire runs on your devices and syncs your files directly with your Google Drive. Unless you turn on something else, your files do not go through any VT Asvent server.</p>
     <p>The <strong>Wire cloud</strong> is optional. It only exists if you turn it on, to use your vault from Claude and to add new devices with a single sign-in. VT Asvent uses what it stores for nothing other than providing those features.</p>
+    <p>Wire also sends <strong>usage statistics</strong>: figures to learn whether it works well and what to improve, never your files. It tells you before sending anything and you can turn them off at any time (section 7).</p>
 
     <h2>3. What data Wire uses on your devices</h2>
     <ul>
@@ -44,6 +45,7 @@
       <li><strong>Email, name, photo and storage space</strong> of each account: Wire asks Google for them to show them in the app and to decide which account stores each file.</li>
       <li><strong>Your profile and settings</strong> (name, photo, device name, language and appearance).</li>
       <li><strong>A sync log</strong> (which file was uploaded or downloaded, when, and with which account).</li>
+      <li><strong>Usage and failure counters</strong>, for up to 30 days, waiting to be sent as statistics (section 7).</li>
     </ul>
 
     <h2>4. The Wire cloud (optional)</h2>
@@ -67,34 +69,50 @@
     <p>Wire only requests the <code>https://www.googleapis.com/auth/drive.file</code> permission: to see, create, download, modify and send to the trash only the Google Drive files that Wire itself creates. Wire cannot see the rest of your Drive, your email or any other data in your account.</p>
     <p>Wire's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. That information is used only to sync your files and for the Wire cloud features you turn on. It is not used for advertising, it is not sold, it is not used to train artificial intelligence models, and it only reaches Claude when you connect it and ask it to.</p>
 
-    <h2>7. What Wire does not do</h2>
-    <p>It has no advertising, does not measure your usage, does not send statistics or error reports, and does not create accounts of its own: you identify yourself with your Google account. It does not sell your data or share it with anyone outside the services in the next section.</p>
+    <h2>7. Usage statistics</h2>
+    <p>Wire sends VT Asvent figures about how it works, to find failures and decide what to improve. They are on by default, but <strong>nothing leaves until you have seen the notice in the app</strong>, and you can turn them off in <strong>Settings, Privacy</strong>. They work even if you do not turn on the Wire cloud.</p>
+    <p><strong>What is sent</strong>, usually every 6 hours, and more often during the first hour of each installation or after a failure:</p>
+    <ul>
+      <li><strong>An installation identifier</strong>: a random number created on your device, not derived from your account or your device. Reinstalling Wire creates another one.</li>
+      <li><strong>General data</strong>: Wire and system version, device type, manufacturer on Android, approximate window width, language, appearance, time zone and which Android permissions you granted.</li>
+      <li><strong>Daily counters</strong>: how many files were uploaded, downloaded, moved or failed and their total size, how long things took, how many times you opened Wire, for how long, at what time, and which screens and actions you used.</li>
+      <li><strong>The general state</strong>: number of connected accounts, number and total size of files, how many are waiting or have errors, and settings such as pause or notifications.</li>
+      <li><strong>Failures</strong>: their class and the point in the code where they happened; in the interface, the technical message without paths or email addresses.</li>
+    </ul>
+    <p><strong>What is never sent</strong>: file or folder names, paths, content, your email, your name, your photo, your access permissions or information Wire obtains from your Google accounts. The server also discards any text that looks like an email address or a path.</p>
+    <p><strong>Country</strong>: Cloudflare infers it from the connection and it is the only thing kept from it. The IP address is not stored.</p>
+    <p><strong>If you use the Wire cloud</strong>, your devices are joined with a pseudonym computed on the server, to count people rather than installations; it contains neither your email nor your name, but VT Asvent holds the key that computes it, so in that case the statistics are pseudonymous, not anonymous. The cloud also counts Claude's calls by tool, their duration and size, without storing what is read or written.</p>
+    <p><strong>What for</strong>: only to maintain and improve Wire. Only the person responsible for Wire sees them, in a private panel with two-step verification. They are not sold and are not used for advertising or to identify you. They live in a database separate from the Wire cloud.</p>
 
-    <h2>8. Third-party services</h2>
+    <h2>8. What Wire does not do</h2>
+    <p>It has no advertising and does not create accounts of its own: you identify yourself with your Google account. It does not sell your data or share it with anyone outside the services in the next section.</p>
+
+    <h2>9. Third-party services</h2>
     <ul>
       <li><strong>Google</strong> (Drive and sign-in): always, because your files live in your Drive.</li>
-      <li><strong>Cloudflare</strong> (cloud hosting): only if you turn it on. It may process technical connection data, such as the IP address, to run and protect its network.</li>
+      <li><strong>Cloudflare</strong> (hosting for the cloud and the statistics): the cloud, only if you turn it on; the statistics, while they are on. It may process technical connection data, such as the IP address, to run and protect its network.</li>
       <li><strong>Anthropic</strong> (Claude): only if you connect Wire to Claude.</li>
       <li><strong>GitHub</strong> (updates): Wire checks there for a new version and downloads it. It sends no personal data; GitHub receives the IP address, like any website.</li>
     </ul>
     <p>These services operate outside Peru, so using them involves a cross-border flow of data.</p>
 
-    <h2>9. Your control</h2>
+    <h2>10. Your control</h2>
     <ul>
       <li><strong>Erase everything from the cloud</strong> (Claude screen): immediately removes your keys, the index, the text, your profile, your devices and Claude's access. Cloudflare's technical recovery copies disappear on their own within 30 days at most. Your files stay in your Drive.</li>
       <li><strong>Removing an account</strong> deletes its access permission from your device and, if the cloud is on, from the cloud too. Your files stay in your Drive.</li>
       <li><strong>Signing out</strong> removes all accounts from that device and unlinks it from the cloud. Your vault stays on your device and in your Drive.</li>
+      <li><strong>Turning statistics off</strong> (Settings, Privacy) deletes that device's counters and what that installation sent, and if there is no internet it asks again when the connection returns. <strong>Erase everything from the cloud</strong> also deletes what is tied to your pseudonym.</li>
       <li>You can revoke Wire's access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> and Claude's access from Claude's connectors.</li>
       <li>Uninstalling Wire deletes its data from that device. What you uploaded to your Drive is yours and you manage it from Google Drive.</li>
     </ul>
 
-    <h2>10. Security</h2>
+    <h2>11. Security</h2>
     <p>All communication uses HTTPS. Google permissions are encrypted on your device and in the cloud, and Cloudflare encrypts the database at rest with AES-256. Claude's access expires every hour and is renewed by rotation. No measure is absolute: if we detect an incident affecting your data, we will tell you through the means available.</p>
 
-    <h2>11. Retention</h2>
-    <p>What is on your devices lasts as long as you keep Wire. What is in the cloud lasts as long as you keep it on; it is updated when your files change and disappears when you erase it.</p>
+    <h2>12. Retention</h2>
+    <p>What is on your devices lasts as long as you keep Wire. What is in the cloud lasts as long as you keep it on; it is updated when your files change and disappears when you erase it. Of the statistics, failures are kept for 90 days and daily counters for 400 days; after that they are deleted automatically.</p>
 
-    <h2>12. Changes and contact</h2>
+    <h2>13. Changes and contact</h2>
     <p>If this Policy changes, the new version will be published on this same page with its date. For any question, or to exercise your rights under Peru's Personal Data Protection Law 29733, write to <strong>vt.asvent@gmail.com</strong>.</p>
   </main>
 </body>
