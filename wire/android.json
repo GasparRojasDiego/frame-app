@@ -1,10 +1,10 @@
 {
-  "version": "0.1.4",
-  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.4/Wire-0.1.4.apk",
-  "sha256": "7fe7861b04e78e379e5e785aaa16f8cb03129f77d76fd853283fba5d993400ae",
-  "size": 5783922,
-  "date": "2026-10-31",
+  "version": "0.1.5",
+  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.5/Wire-0.1.5.apk",
+  "sha256": "0829439cea24cdf5b981988670a57adbd0e89a9aeb8701a3d9b826574f11c31a",
+  "size": 5813598,
+  "date": "2026-11-02",
   "minimum": "0.1.0",
-  "notes": "Ajustes se abre desde tu foto y tu nombre en la barra lateral. Wire empieza a compartir estadísticas de uso, nunca tus archivos: te avisa antes y puedes apagarlas en Ajustes.",
-  "notes_en": "Settings now opens from your photo and name in the sidebar. Wire starts sharing usage statistics, never your files: it tells you first and you can turn them off in Settings."
+  "notes": "Sincronización permanente: cada equipo elige en Ajustes si guarda una copia de tus archivos de Drive y la mantiene al día. Se activa y se apaga cuando quieras.",
+  "notes_en": "Permanent sync: each device chooses in Settings whether to keep an up-to-date copy of your Drive files. Turn it on or off whenever you want."
 }

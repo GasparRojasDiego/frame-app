@@ -28,7 +28,7 @@
   </header>
   <main id="contenido" class="container legal">
     <h1>Wire Privacy Policy</h1>
-    <p><strong>Version 1.3 · Effective October 31, 2026</strong> (adds usage statistics and how to turn them off). This is a translation; the <a href="./" hreflang="es">Spanish version</a> prevails if they differ.</p>
+    <p><strong>Version 1.4 · Effective November 1, 2026</strong> (adds permanent sync). This is a translation; the <a href="./" hreflang="es">Spanish version</a> prevails if they differ.</p>
 
     <h2>1. Who is responsible</h2>
     <p><strong>VT Asvent</strong>, a software development entity in formation, Peru. Privacy contact: <strong>vt.asvent@gmail.com</strong>.</p>
@@ -40,7 +40,8 @@
 
     <h2>3. What data Wire uses on your devices</h2>
     <ul>
-      <li><strong>The files in the folder you choose</strong> (your Obsidian vault): Wire reads them on your device and uploads them to the Wire folder in your Google Drive, and downloads to that same folder on your device whatever your other devices left there. Outside that folder, Wire does not read or write anything on your device.</li>
+      <li><strong>The files in the folder you choose</strong> (your Obsidian vault): Wire reads them on your device and uploads them to the Wire folder in your Google Drive, and downloads to that same folder on your device whatever your other devices left there. Outside that folder, Wire does not read or write anything on your device, except the copy described below if you turn it on.</li>
+      <li><strong>The permanent sync copy</strong>, only if you turn it on for that device: Wire downloads the files in the Wire Archivos folder directly from your Google Drive and stores them in Documents/Wire Archivos, without going through any VT Asvent server. On Android it also uses mobile data unless you limit it to Wi-Fi.</li>
       <li><strong>The access permission of each Google account</strong> you connect: stored on your device (on Windows, encrypted with the system's data protection; on Android, in the app's private folder, excluded from backups).</li>
       <li><strong>Email, name, photo and storage space</strong> of each account: Wire asks Google for them to show them in the app and to decide which account stores each file.</li>
       <li><strong>Your profile and settings</strong> (name, photo, device name, language and appearance).</li>
@@ -103,7 +104,8 @@
       <li><strong>Signing out</strong> removes all accounts from that device and unlinks it from the cloud. Your vault stays on your device and in your Drive.</li>
       <li><strong>Turning statistics off</strong> (Settings, Privacy) deletes that device's counters and what that installation sent, and if there is no internet it asks again when the connection returns. <strong>Erase everything from the cloud</strong> also deletes what is tied to your pseudonym.</li>
       <li>You can revoke Wire's access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> and Claude's access from Claude's connectors.</li>
-      <li>Uninstalling Wire deletes its data from that device. What you uploaded to your Drive is yours and you manage it from Google Drive.</li>
+      <li><strong>Turning off permanent sync</strong> (Settings, Files on this device): you choose whether to keep what was downloaded or delete it from that device. Deleting removes only what Wire downloaded. Your Drive and your other devices do not change.</li>
+      <li>Uninstalling Wire deletes its data from that device. The copy in Documents/Wire Archivos is not deleted automatically: remove it first from Settings or delete it by hand afterwards. What you uploaded to your Drive is yours and you manage it from Google Drive.</li>
     </ul>
 
     <h2>11. Security</h2>

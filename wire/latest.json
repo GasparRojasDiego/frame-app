@@ -1,16 +1,16 @@
 {
-  "version": "0.1.4",
-  "notes": "Ajustes se abre desde tu foto y tu nombre en la barra lateral. Wire empieza a compartir estadísticas de uso, nunca tus archivos: te avisa antes y puedes apagarlas en Ajustes.",
-  "pub_date": "2026-10-31T18:07:35Z",
+  "version": "0.1.5",
+  "notes": "Sincronización permanente: cada equipo elige en Ajustes si guarda una copia de tus archivos de Drive y la mantiene al día. Se activa y se apaga cuando quieras.",
+  "pub_date": "2026-11-02T03:14:29Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.4/Wire_0.1.4_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZmtGNlk3RGZ3ODArQVBvYXdYVTJtSXZ3YXU0dVVDdnBlWlR6M0lxUHJHUFBFWkhEbGQ2SFg1UVdCdzJqNzVnTUpyeG1TQXBKV05kNzhpWTg3N3dCeUE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNDY4MDUzCWZpbGU6V2lyZV8wLjEuNF94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjQKVG8xTTZkcjY1a0NvVVpEaHZmM1A3eWNXdFdTSmVBSDVLT3lhSTU2M0JiWDZFc0VHY1Bhd2lHZmdyYVpxVjVtK2lzdnhBN3NLVDVIeXN5bEpnNXVPQXc9PQo="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.5/Wire_0.1.5_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZmpQYk9VY2Mya1Bjak1XWGxYVjBtdi90S1NwR2U0b25mL2JobVh4M1FFbHdJNzcyQTI0Z09WQi9RbnhuZE05UjM0bFZhK1lyM1p4ZjF2SGpiM1dXU3d3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTg4OTMxCWZpbGU6V2lyZV8wLjEuNV94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjUKelVvaXRET2dpbkZXTkx6ZHFOUFJMcGtkMmtnYmwvd3pMNWxRT3RaUlczVGczR2pEb3VJcHQvNkY1NnllNVNNWXRja3JZL3dMQnpNRW9MR0JPSVFhQVE9PQo="
     }
   },
   "wire": {
-    "size": 3758209,
+    "size": 3777586,
     "minimum": "0.1.0",
-    "notes_en": "Settings now opens from your photo and name in the sidebar. Wire starts sharing usage statistics, never your files: it tells you first and you can turn them off in Settings."
+    "notes_en": "Permanent sync: each device chooses in Settings whether to keep an up-to-date copy of your Drive files. Turn it on or off whenever you want."
   }
 }
