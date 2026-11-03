@@ -1,10 +1,10 @@
 {
-  "version": "0.1.7",
-  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.7/Wire-0.1.7.apk",
-  "sha256": "e4c7c1e930cba244212488d51a415a77cb2afa8f3988f841e4f97cdc451dda66",
-  "size": 7642766,
+  "version": "0.1.8",
+  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.8/Wire-0.1.8.apk",
+  "sha256": "bab4a233c1c70508cdeef0ab8f007202c0a0f16cc70d7aa3daacbc81a0e4591e",
+  "size": 7649950,
   "date": "2026-11-03",
   "minimum": "0.1.0",
-  "notes": "Wire reemplaza a Obsidian: editor de notas con vista en vivo, búsqueda, enlaces que se actualizan al renombrar, revisión de la bóveda y un MCP local para que Claude Code lea y edite tus notas sin Obsidian. En la nube, cada nota muestra su descripción.",
-  "notes_en": "Wire replaces Obsidian: a note editor with live preview, search, links that update when you rename, a vault check and a local MCP so Claude Code reads and edits your notes without Obsidian. In the cloud, every note shows its description."
+  "notes": "La búsqueda de notas responde en milisegundos y ve al momento lo que cambia fuera de Wire. Además, leer una nota nunca sale de la bóveda y el HTML de una nota ya no puede cambiar el aspecto de Wire.",
+  "notes_en": "Note search answers in milliseconds and sees changes made outside Wire right away. Also, reading a note never leaves the vault, and a note's HTML can no longer change how Wire looks."
 }

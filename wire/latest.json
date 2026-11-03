@@ -1,16 +1,16 @@
 {
-  "version": "0.1.7",
-  "notes": "Wire reemplaza a Obsidian: editor de notas con vista en vivo, búsqueda, enlaces que se actualizan al renombrar, revisión de la bóveda y un MCP local para que Claude Code lea y edite tus notas sin Obsidian. En la nube, cada nota muestra su descripción.",
-  "pub_date": "2026-11-03T21:06:56Z",
+  "version": "0.1.8",
+  "notes": "La búsqueda de notas responde en milisegundos y ve al momento lo que cambia fuera de Wire. Además, leer una nota nunca sale de la bóveda y el HTML de una nota ya no puede cambiar el aspecto de Wire.",
+  "pub_date": "2026-11-03T23:34:48Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.7/Wire_0.1.7_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnV0eG5KRXR4QW1FcjY0OW9HQW5HYXVvekF1d2F4M0ZaTDdlYWNsYWIzbVVVMHlFU0tVQzF2cnFBTVlLd3NCZUp0YWp2M2ljeENKYTQyOGNpV01WN3cwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNzM5NTA2CWZpbGU6V2lyZV8wLjEuN194NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjcKMVpncVU3cTVPcWZBaEJyU1lEdnVKa0tOcnlWOWltaFcwUVBWWjVoU3BJU0hvdERaNEluQ0U1dmNDYnpyeXJxTEdYdWpQbkRnR1VFZGJxRkoxa0VKRHc9PQo="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.8/Wire_0.1.8_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnNJUnFrS3c3TGlRRjJDaE1kK3gwQ1VSeDFaYkMyRFc3SW15dmJxT0NTVHFRRHR2L1g2cDhCd2VqVkpYK29BcE9VZlB0c0V0ZXZLcTdMSW1CV21ZblE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNzQ3MzEwCWZpbGU6V2lyZV8wLjEuOF94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjgKK25uOGtwZVR0MGVGbUdDMmVITnVDWkEvSTNRVXRmUGJYbWNEL2NZN0J0dGRPMTA2MUU3QStibXRkSmoxOEczSEIyUjdwZmlLZ2VKS2RoWkgxei9VQWc9PQo="
     }
   },
   "wire": {
-    "size": 5545154,
+    "size": 5551829,
     "minimum": "0.1.0",
-    "notes_en": "Wire replaces Obsidian: a note editor with live preview, search, links that update when you rename, a vault check and a local MCP so Claude Code reads and edits your notes without Obsidian. In the cloud, every note shows its description."
+    "notes_en": "Note search answers in milliseconds and sees changes made outside Wire right away. Also, reading a note never leaves the vault, and a note's HTML can no longer change how Wire looks."
   }
 }
