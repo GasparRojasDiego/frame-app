@@ -1,10 +1,10 @@
 {
-  "version": "0.1.5",
-  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.5/Wire-0.1.5.apk",
-  "sha256": "0829439cea24cdf5b981988670a57adbd0e89a9aeb8701a3d9b826574f11c31a",
-  "size": 5813598,
-  "date": "2026-11-02",
+  "version": "0.1.6",
+  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire-0.1.6.apk",
+  "sha256": "13ea739ab101ea24b93bbf63374300f91d6139a89d4b74b4bbaa3da3d96ef08d",
+  "size": 5791998,
+  "date": "2026-11-03",
   "minimum": "0.1.0",
-  "notes": "Sincronización permanente: cada equipo elige en Ajustes si guarda una copia de tus archivos de Drive y la mantiene al día. Se activa y se apaga cuando quieras.",
-  "notes_en": "Permanent sync: each device chooses in Settings whether to keep an up-to-date copy of your Drive files. Turn it on or off whenever you want."
+  "notes": "Inicio nuevo: tu bóveda a un lado, Drive al otro y los datos en medio. Ajustes con encabezado nuevo, barra lateral que se pliega y una app más simple: se fueron las funciones que casi no se usaban.",
+  "notes_en": "New Home: your vault on one side, Drive on the other and the numbers in between. A new Settings header, a collapsible sidebar and a simpler app: rarely used features are gone."
 }

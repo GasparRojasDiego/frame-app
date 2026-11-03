@@ -3,46 +3,529 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'" />
+  <!-- Seguridad: solo se carga lo que sirve este mismo sitio. Sin scripts ni
+       estilos incrustados, sin terceros, sin formularios, sin marcos. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Wire · VT Asvent</title>
-  <meta name="description" content="Wire mantiene tu bóveda de Obsidian igual en tu Google Drive y en tus equipos con Windows y Android, aunque estés sin internet, y la lleva a cualquier chat de Claude. VT Asvent." />
+  <title>Wire · Tu bóveda de Obsidian, en todas partes</title>
+  <meta name="description" content="Wire mantiene tu bóveda de Obsidian igual en Google Drive, en tus equipos con Windows y Android, y en cualquier chat de Claude, aunque estés sin internet. Gratis y sin anuncios. Un producto de VT Asvent." />
+  <meta name="theme-color" content="#ece7dd" />
   <meta name="color-scheme" content="light dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Wire · VT Asvent" />
+  <meta property="og:title" content="Wire · Tu bóveda de Obsidian, en todas partes" />
+  <meta property="og:description" content="Obsidian, Google Drive y Claude, siempre iguales en todos tus equipos. Gratis para Windows y Android." />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="preload" href="../assets/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../assets/site.css" />
-  <link rel="stylesheet" href="../privacidad/privacidad.css" />
   <script src="../assets/theme.js"></script>
+  <script src="../assets/site.js" defer></script>
 </head>
 <body>
-  <header class="nav">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- Fondo vivo de toda la página y cursor de puntos (decorativos). -->
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="top-photo" aria-hidden="true">
+    <img src="../assets/img/paisaje.webp" width="1470" height="832" alt="" />
+    <span class="veil"></span>
+    <span class="fade"></span>
+  </div>
+  <canvas class="cursor-ring" id="cursor-ring" aria-hidden="true"></canvas>
+
+  <!-- ============================================================ Barra -->
+  <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a class="brand" href="./" aria-label="Wire, inicio">
+      <a class="brand" href="#top" aria-label="Wire, inicio">
         <img src="logo.png" alt="" width="32" height="32" />
         <span>WIRE</span>
       </a>
+      <nav class="nav-links" id="nav-links" aria-label="Secciones">
+        <a href="#funciones">Funciones</a>
+        <a href="#mas">Más</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#vt-asvent">VT Asvent</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
       <div class="nav-actions">
-        <a class="btn btn-soft btn-sm" href="terminos/">Términos</a>
-        <a class="btn btn-soft btn-sm" href="privacidad/">Privacidad</a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="#descargar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+          Descargar
+        </a>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
-  <main id="contenido" class="container legal">
-    <h1>Wire</h1>
-    <p><strong>Tu bóveda de Obsidian, siempre en tu Google Drive y en cualquier chat de Claude.</strong></p>
-    <p>Wire es una app de VT Asvent para Windows y Android que mantiene una bóveda de Obsidian igual en una carpeta de Google Drive y en todos tus equipos: lo que cambias en uno aparece en los demás. Si no hay internet, espera y sincroniza en cuanto vuelve la conexión, sin perder nada; si dos equipos cambian la misma nota, guarda las dos versiones. Puede repartir los archivos entre varias cuentas de Google para sumar su espacio.</p>
-    <p>Si quieres, puedes activar su nube opcional para conectarla a Claude: desde el escritorio, la web, la tablet o el celular, Claude busca, lee y escribe tus archivos aunque tus equipos estén apagados, y gasta pocos tokens porque lee solo la sección que necesita.</p>
-    <h2>Cómo trata tus datos</h2>
-    <ul>
-      <li>Sin la nube opcional, tus archivos viajan directo entre tus equipos y tu propio Google Drive.</li>
-      <li>La nube solo existe si la activas. Guarda cifradas las llaves de tus cuentas y mantiene el texto de tus archivos para poder buscarlo. Puedes borrarla entera desde la app.</li>
-      <li>Pide a Google el permiso mínimo (<code>drive.file</code>): solo ve los archivos que el mismo Wire crea; no puede leer el resto de tu Drive.</li>
-      <li>No usa publicidad y no vende tus datos. Sus estadísticas de uso se pueden apagar y nunca incluyen tus archivos.</li>
-    </ul>
-    <p>Detalle completo en la <a href="privacidad/">Política de Privacidad</a> y en los <a href="terminos/">Términos de servicio</a>.</p>
-    <h2>Estado</h2>
-    <p>Wire es, por ahora, una herramienta de uso personal: no se distribuye en tiendas.</p>
-    <h2>Contacto</h2>
-    <p>vt.asvent@gmail.com · VT Asvent, entidad de desarrollo de software (en formación), Perú.</p>
+
+  <main id="contenido">
+    <!-- ============================================================ Portada -->
+    <section class="hero" id="top">
+      <div class="grid-texture" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-copy" data-reveal>
+            <a class="pill" href="#claude">
+              <span class="dot-live" aria-hidden="true"></span>
+              <span><b data-version-short>Versión estable</b></span>
+              <span class="pill-sep" aria-hidden="true"></span>
+              <span class="pill-strong">ahora dentro de Claude</span>
+            </a>
+            <h1 class="display">
+              Tu bóveda,
+              <span class="accent">en todas partes.</span>
+            </h1>
+            <p class="lead">
+              Wire mantiene tu bóveda de Obsidian igual en Google Drive, en todos tus equipos y en
+              <em class="serif">cualquier</em> chat de Claude. Lo que cambias en uno aparece en los demás.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire_0.1.6_x64-setup.exe">
+                <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21v-8.5h-9.5v7.2Zm0-15.4v7.2H21V3l-9.5 1.3Z"/></svg>
+                <span class="btn-label">Descargar para Windows<small><span data-version-short>Versión estable</span> · <span data-size>8 MB</span> · Gratis</small></span>
+              </a>
+              <a class="btn btn-soft btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire-0.1.6.apk">
+                <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.87 3.23A11.43 11.43 0 0 0 12 8.2c-1.76 0-3.4.39-4.91.95L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+                <span class="btn-label">Descargar para Android<small>Tablets y teléfonos · <span data-apk-size>6 MB</span> · Gratis</small></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual" data-reveal>
+            <div class="window tilt" id="hero-window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Wire · Inicio</span></div>
+              <img class="shot shot-dark" src="img/inicio-dark.webp" width="1440" height="900" fetchpriority="high" alt="Inicio de Wire: la bóveda de Obsidian a un lado, Google Drive al otro y, entre ambos, lo que hay en Drive, en cola y con error" />
+              <img class="shot shot-light" src="img/inicio-light.webp" width="1440" height="900" loading="lazy" alt="Inicio de Wire: la bóveda de Obsidian a un lado, Google Drive al otro y, entre ambos, lo que hay en Drive, en cola y con error, en modo claro" />
+            </div>
+            <div class="float-chip chip-a" aria-hidden="true">
+              <span class="chip-icon"><svg viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.9a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0M12 20h.01"/></svg></span>
+              <span><b>Sin internet</b><small>nada se pierde</small></span>
+            </div>
+            <div class="float-chip chip-b" aria-hidden="true">
+              <span class="chip-icon grade">2</span>
+              <span><b>Dos versiones</b><small>si hay conflicto</small></span>
+            </div>
+            <div class="float-chip chip-c" aria-hidden="true">
+              <span class="chip-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></span>
+              <span><b>Claude</b><small>con tus equipos apagados</small></span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="trust" data-reveal aria-label="Lo esencial">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span><b>Windows y Android</b><small>10 y 11 · Android 8 o superior</small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.9a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0M12 20h.01"/><path d="M2 2l20 20"/></svg><span><b>Sin conexión</b><small>sincroniza al volver</small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><span><b>Sin anuncios</b><small>y gratis</small></span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><b>Versiones firmadas</b><small>por VT Asvent</small></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ Cinta -->
+    <div class="marquee" aria-label="Lo que une Wire">
+      <div class="marquee-track">
+        <span>Obsidian</span><span>Google Drive</span><span>Claude</span><span>Windows</span><span>Android</span><span>Sin conexión</span><span>Doble vía</span><span>Varias cuentas</span><span>Conflictos sin pérdidas</span><span>Papelera</span><span>Copia permanente</span><span>Español e inglés</span>
+        <span aria-hidden="true">Obsidian</span><span aria-hidden="true">Google Drive</span><span aria-hidden="true">Claude</span><span aria-hidden="true">Windows</span><span aria-hidden="true">Android</span><span aria-hidden="true">Sin conexión</span><span aria-hidden="true">Doble vía</span><span aria-hidden="true">Varias cuentas</span><span aria-hidden="true">Conflictos sin pérdidas</span><span aria-hidden="true">Papelera</span><span aria-hidden="true">Copia permanente</span><span aria-hidden="true">Español e inglés</span>
+      </div>
+    </div>
+
+    <!-- ============================================================ 01 · Un solo lugar -->
+    <section class="section" id="uno">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">WIRE WIRE WIRE WIRE WIRE WIRE WIRE WIRE</span>
+          <span class="index" aria-hidden="true">01</span>
+          <div>
+            <p class="kicker">Una sola bóveda</p>
+            <h2 class="h2">De cuatro copias <span class="accent">a una sola.</span></h2>
+          </div>
+        </header>
+
+        <div class="grid-12">
+          <article class="panel col-5 problem" data-reveal>
+            <p class="kicker muted">El problema</p>
+            <h3 class="h3">La <span class="serif accent">desconexión.</span></h3>
+            <p>Una nota en la laptop, otra versión en el celular, la tablet atrasada y Claude sin saber nada: cada copia avanza por su lado y al final no sabes cuál es la buena.</p>
+            <p class="strong">Wire las une en una sola bóveda que se mantiene igual en todas partes.</p>
+          </article>
+
+          <article class="panel col-7 converge-panel" data-reveal>
+            <div class="converge">
+              <svg class="converge-lines" viewBox="0 0 600 340" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M110 48 C 220 48, 240 170, 300 170" />
+                <path d="M490 48 C 380 48, 360 170, 300 170" />
+                <path d="M110 292 C 220 292, 240 170, 300 170" />
+                <path d="M490 292 C 380 292, 360 170, 300 170" />
+              </svg>
+              <div class="frag frag-1"><span class="frag-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><b>Laptop</b><small>tu bóveda de siempre</small></div>
+              <div class="frag frag-2"><span class="frag-icon"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span><b>Celular</b><small>con la app cerrada</small></div>
+              <div class="frag frag-3"><span class="frag-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 17h2"/></svg></span><b>Tablet</b><small>siempre al día</small></div>
+              <div class="frag frag-4"><span class="frag-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></span><b>Claude</b><small>en cualquier chat</small></div>
+              <div class="converge-core">
+                <img src="logo.png" alt="" width="52" height="52" loading="lazy" />
+                <b>WIRE</b>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 02 · Funciones -->
+    <section class="section" id="funciones">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">FUNCIONES FUNCIONES FUNCIONES FUNCIONES</span>
+          <span class="index" aria-hidden="true">02</span>
+          <div>
+            <p class="kicker">Funciones</p>
+            <h2 class="h2">Lo que pasa con tus archivos, <span class="accent">a la vista.</span></h2>
+          </div>
+        </header>
+
+        <div class="grid-12">
+          <article class="panel col-12 feature-wide" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Inicio</p>
+              <h3 class="h3">La conexión, <span class="accent">de un vistazo.</span></h3>
+              <p>A un lado tu bóveda, como <b>grafo</b>, como notas o como carpeta; al otro, tu Google Drive. Entre ambos, lo que ya está en Drive, lo que espera y lo que falló.</p>
+              <ul class="tags"><li>Vista de grafo</li><li>Notas</li><li>Explorador</li><li>Actividad en vivo</li></ul>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Inicio</span></div>
+              <img class="shot shot-dark" src="img/inicio-dark.webp" width="1440" height="900" loading="lazy" alt="Inicio de Wire con la bóveda, Google Drive y los datos de la conexión" />
+              <img class="shot shot-light" src="img/inicio-light.webp" width="1440" height="900" loading="lazy" alt="Inicio de Wire con la bóveda, Google Drive y los datos de la conexión, en modo claro" />
+            </figure>
+          </article>
+
+          <article class="panel col-6 feature-tall" id="drive" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Drive</p>
+              <h3 class="h3">Mira cómo <span class="accent">sube cada archivo.</span></h3>
+              <p>Lo nuevo entra, lo editado late y lo borrado se apaga, tal como ocurre. En Windows, además, tu <b>Google Drive real</b> dentro de la ventana.</p>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Drive</span></div>
+              <img class="shot shot-dark" src="img/drive-dark.webp" width="1440" height="900" loading="lazy" alt="Explorador de Drive de Wire con el estado de cada archivo y la actividad en vivo" />
+              <img class="shot shot-light" src="img/drive-light.webp" width="1440" height="900" loading="lazy" alt="Explorador de Drive de Wire con el estado de cada archivo y la actividad en vivo, en modo claro" />
+            </figure>
+          </article>
+
+          <article class="panel col-6 feature-tall" id="cuentas" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Cuentas</p>
+              <h3 class="h3">Suma el espacio <span class="accent">de tus cuentas.</span></h3>
+              <p>Wire reparte tus archivos entre varias cuentas de Google. Cuando una se llena, lo nuevo pasa sola a la siguiente, y cada una conserva 500 MB libres para que Gmail siga recibiendo correos.</p>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Cuentas</span></div>
+              <img class="shot shot-dark" src="img/cuentas-dark.webp" width="1440" height="900" loading="lazy" alt="Cuentas de Google conectadas a Wire con su espacio usado" />
+              <img class="shot shot-light" src="img/cuentas-light.webp" width="1440" height="900" loading="lazy" alt="Cuentas de Google conectadas a Wire con su espacio usado, en modo claro" />
+            </figure>
+          </article>
+
+          <article class="panel col-12 feature-wide reverse" id="claude" data-reveal>
+            <div class="feature-text">
+              <p class="kicker">Claude</p>
+              <h3 class="h3">Tu bóveda dentro de <span class="accent">cualquier Claude.</span></h3>
+              <p>Claude busca, lee y escribe tus notas desde el escritorio, la web, la tablet o el celular, aunque tus equipos estén apagados. Lee solo la sección que necesita, y lo que cambia llega solo a todos tus equipos.</p>
+              <ul class="tags"><li>Conector remoto</li><li>Búsqueda exacta</li><li>Código de un solo uso</li></ul>
+            </div>
+            <figure class="window">
+              <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>Claude</span></div>
+              <img class="shot shot-dark" src="img/claude-dark.webp" width="1440" height="900" loading="lazy" alt="Pantalla Claude de Wire con los pasos para conectar el conector" />
+              <img class="shot shot-light" src="img/claude-light.webp" width="1440" height="900" loading="lazy" alt="Pantalla Claude de Wire con los pasos para conectar el conector, en modo claro" />
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 03 · Más -->
+    <section class="section" id="mas">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">MÁS MÁS MÁS MÁS MÁS MÁS MÁS MÁS MÁS</span>
+          <span class="index" aria-hidden="true">03</span>
+          <div>
+            <p class="kicker">Y todavía hay más</p>
+            <h2 class="h2">Hecho para <span class="accent">no perder nada.</span></h2>
+          </div>
+        </header>
+
+        <div class="bento">
+          <article class="panel tile tile-music" id="conflictos" data-reveal>
+            <div>
+              <span class="badge">Doble vía</span>
+              <h3>Nunca pierdes una versión</h3>
+              <p>Si dos equipos cambian la misma nota, Wire guarda las dos: la otra queda al lado con la fecha en su nombre. Lo mismo al unirte con una bóveda que ya tenía notas: gana la más reciente y la otra se conserva.</p>
+            </div>
+            <div class="lyrics" aria-hidden="true">
+              <p>Nota.md en la laptop</p>
+              <p>Nota.md en el celular</p>
+              <p>Las dos cambiaron</p>
+              <p>Nota.md</p>
+              <p>Nota (conflicto).md</p>
+              <p>Las dos se quedan</p>
+            </div>
+          </article>
+
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.9a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0M12 20h.01"/><path d="M2 2l20 20"/></svg></span>
+            <h3>Sin internet</h3>
+            <p>Sigue escribiendo. Wire sincroniza en cuanto vuelve la red, aunque pasen días; en Android lo hace con la app cerrada.</p>
+            <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="m9 14 2 2 4-4"/></svg></span>
+            <h3>Verificado, archivo por archivo</h3>
+            <p>La huella de cada archivo se compara con la de Drive al subir y al bajar. Si no coincide, se repite.</p>
+            <div class="doc" aria-hidden="true"><span></span><span></span><span></span><span></span><b>MD5</b></div>
+          </article>
+
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h12M3 18h7"/><path d="m15 18 3 3 4-5"/></svg></span>
+            <h3>Archivos grandes</h3>
+            <p>Suben y bajan por trozos: un corte, un cierre o un apagón no hacen empezar de nuevo.</p>
+          </article>
+
+          <article class="panel tile" id="idioma" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M4 5h8M8 3v2M5.5 5c.8 3.4 3 6 6 7.5M10.5 5c-.9 3.8-3.3 6.8-6.5 8.5"/><path d="m12 21 4.5-10L21 21M13.5 17.5h6"/></svg></span>
+            <h3>En español y en inglés</h3>
+            <p>Ajustes cambia toda la app al instante, sin reiniciar: pantallas, avisos y mensajes.</p>
+          </article>
+
+          <article class="panel tile" id="permanente" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 1 0 6 16.3"/><path d="M12 12v9m0 0-3-3m3 3 3-3"/></svg></span>
+            <h3>Sincronización permanente</h3>
+            <p>Cada equipo decide si guarda una copia de consulta de lo que tienes en Wire Archivos, con Wi-Fi o con datos. Se apaga cuando quieras.</p>
+            <div class="cal" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="panel tile" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M12 8v5M12 16h.01"/></svg></span>
+            <h3>Guardia ante borrados</h3>
+            <p>Si desaparecen muchos archivos de golpe, Wire se detiene y te pregunta. Lo borrado va a la papelera, nunca se elimina para siempre.</p>
+          </article>
+
+          <article class="panel tile tile-native" data-reveal>
+            <img class="tile-bg" src="../assets/img/audi-noche.webp" alt="" loading="lazy" />
+            <div class="tile-native-text">
+              <p class="kicker light">Ingeniería</p>
+              <h3>Nativa, liviana y precisa</h3>
+              <p>Construida con Tauri y Rust: usa el motor web del sistema en lugar de cargar un navegador entero, y arranca oculta en la bandeja para sincronizar sin que la abras.</p>
+              <ul class="stack"><li>Tauri 2</li><li>Rust</li><li>React 19</li><li>TypeScript</li><li>SQLite</li><li>Cloudflare</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="panel stats" data-reveal aria-label="Wire en cifras">
+          <div class="stat"><b data-count="2">2</b><span>sistemas</span></div>
+          <div class="stat"><b data-count="15">15</b><span>GB gratis por cuenta de Google</span></div>
+          <div class="stat"><b data-count="10">10</b><span>herramientas para Claude</span></div>
+          <div class="stat"><b data-count="30">30</b><span>días en la papelera de Drive</span></div>
+          <div class="stat"><b data-count="2">2</b><span>idiomas</span></div>
+          <div class="stat"><b>0</b><span>anuncios</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 04 · Seguridad -->
+    <section class="section" id="seguridad">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">SEGURIDAD SEGURIDAD SEGURIDAD SEGURIDAD</span>
+          <span class="index" aria-hidden="true">04</span>
+          <div>
+            <p class="kicker">Seguridad y privacidad</p>
+            <h2 class="h2">Tus archivos, <span class="serif accent">tuyos.</span></h2>
+          </div>
+        </header>
+
+        <div class="grid-12">
+          <article class="panel col-4 sec" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3>Permiso mínimo</h3>
+            <p>Wire pide a Google solo <code>drive.file</code>: ve los archivos que él mismo crea y nada más. El resto de tu Drive queda fuera de su alcance.</p>
+          </article>
+          <article class="panel col-4 sec" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.7-9h1.8a4.5 4.5 0 1 1 0 9Z"/></svg></span>
+            <h3>La nube, solo si la activas</h3>
+            <p>Sin ella, tus archivos viajan directo entre tus equipos y tu Drive. Con ella, guarda cifradas tus llaves y el texto que Claude necesita buscar, y la borras entera desde la app.</p>
+          </article>
+          <article class="panel col-4 sec" data-reveal>
+            <span class="tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
+            <h3>Sin anuncios</h3>
+            <p>Sin publicidad y sin venta de datos. Las estadísticas de uso nunca incluyen tus archivos ni tu correo, y al apagarlas se borra lo ya enviado.</p>
+          </article>
+
+          <article class="panel col-12 verify" data-reveal>
+            <div>
+              <p class="kicker">Verifica tu descarga</p>
+              <h3 class="h3 small">Comprueba que el instalador es el original.</h3>
+              <p>Cada actualización de Wire va firmada por VT Asvent. Si bajas el instalador a mano, abre PowerShell en tu carpeta de descargas y compara la huella con la publicada aquí. Si no coincide, no lo ejecutes.</p>
+            </div>
+            <div class="terminal">
+              <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>PowerShell</span></div>
+              <code class="cmd">Get-FileHash .\Wire_0.1.6_x64-setup.exe -Algorithm SHA256</code>
+              <div class="hash-row">
+                <span class="hash-label">SHA-256 · <span data-version-short>versión actual</span></span>
+                <button class="copy-btn" type="button" data-copy-hash aria-label="Copiar la huella SHA-256">Copiar</button>
+              </div>
+              <code class="hash" data-sha>Se publica junto a cada versión.</code>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 05 · VT Asvent -->
+    <section class="section" id="vt-asvent">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">VT ASVENT VT ASVENT VT ASVENT VT ASVENT</span>
+          <span class="index" aria-hidden="true">05</span>
+          <div>
+            <p class="kicker">Detrás de Wire</p>
+            <h2 class="h2">Un producto de <span class="accent">VT Asvent.</span></h2>
+          </div>
+        </header>
+
+        <div class="grid-12 brand-grid">
+          <figure class="photo col-7 photo-big" data-reveal>
+            <img src="../assets/img/huancayo.webp" alt="Vista panorámica de Huancayo con la cordillera de los Andes" loading="lazy" />
+            <figcaption><span class="kicker light">Huancayo · Junín, Perú</span><b>Donde nació VT Asvent</b></figcaption>
+          </figure>
+          <article class="panel col-5 brand-text" data-reveal>
+            <p>VT Asvent es la entidad de desarrollo de software detrás de Wire y de <a href="../">Frame</a>, emprendida en Huancayo, Perú, para construir software de alto valor real.</p>
+            <dl class="facts">
+              <div><dt>Origen</dt><dd>Huancayo, Perú</dd></div>
+              <div><dt>Área</dt><dd>Desarrollo de software</dd></div>
+              <div><dt>Productos</dt><dd>Frame y Wire</dd></div>
+              <div><dt>Estado</dt><dd>En formalización</dd></div>
+            </dl>
+          </article>
+          <blockquote class="panel col-7 quote" data-reveal>
+            <p>«Software de alto valor real, no solo funcional.»</p>
+            <footer>El principio de VT Asvent</footer>
+          </blockquote>
+          <figure class="photo col-5 photo-map" data-reveal>
+            <img src="../assets/img/huancayo-mapa.webp" alt="Mapa de las calles de Huancayo" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 06 · Preguntas -->
+    <section class="section" id="preguntas">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="echo" aria-hidden="true">PREGUNTAS PREGUNTAS PREGUNTAS PREGUNTAS</span>
+          <span class="index" aria-hidden="true">06</span>
+          <div>
+            <p class="kicker">Preguntas frecuentes</p>
+            <h2 class="h2">Lo que <span class="serif accent">suelen preguntar.</span></h2>
+          </div>
+        </header>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>¿Wire es gratis?</summary>
+            <p>Sí. Wire se descarga y se usa gratis, sin anuncios y sin funciones de pago. El espacio es el de tus propias cuentas de Google. No está en tiendas: se descarga desde esta página.</p>
+          </details>
+          <details>
+            <summary>¿Funciona sin internet?</summary>
+            <p>Sí. Sigues escribiendo en Obsidian como siempre y Wire sincroniza en cuanto vuelve la conexión, aunque pasen días, sin perder nada.</p>
+          </details>
+          <details>
+            <summary>¿Qué puede ver Wire de mi Drive?</summary>
+            <p>Solo los archivos que él mismo crea. Pide a Google el permiso <code>drive.file</code>, así que no puede leer el resto de tu Drive. Por lo mismo, lo que subas a mano desde drive.google.com no aparece en tu bóveda.</p>
+          </details>
+          <details>
+            <summary>¿Qué pasa si dos equipos cambian la misma nota?</summary>
+            <p>Se conservan las dos versiones: la otra queda al lado de la original, con la fecha del conflicto en su nombre, para que elijas con calma.</p>
+          </details>
+          <details>
+            <summary>¿Y si borro algo?</summary>
+            <p>Va a la papelera de Drive, donde se puede recuperar durante 30 días, y a la papelera de Obsidian en tus otros equipos. Si desaparecen muchos archivos de golpe, Wire se detiene y te pregunta antes de tocar nada.</p>
+          </details>
+          <details>
+            <summary>¿Qué necesito para usarlo con Claude?</summary>
+            <p>Activar la nube en la pantalla Claude de Wire y añadir Wire como conector personalizado en claude.ai, con la dirección y el código de un solo uso que te da la app. Se hace una sola vez y vale para todos tus equipos.</p>
+          </details>
+          <details>
+            <summary>Windows muestra un aviso de SmartScreen. ¿Es seguro?</summary>
+            <p>Ese aviso aparece con cualquier aplicación nueva que aún no tiene un certificado comercial. Elige «Más información» y luego «Ejecutar de todas formas». Si quieres total certeza, comprueba antes la huella SHA-256 del instalador.</p>
+          </details>
+          <details>
+            <summary>¿Por qué Android pide acceso a todos los archivos?</summary>
+            <p>Para leer tu bóveda de Obsidian, que vive en una carpeta normal del teléfono. Wire solo usa la carpeta de tu bóveda y, si activas la sincronización permanente, la de esa copia.</p>
+          </details>
+          <details>
+            <summary>¿Cómo se actualiza?</summary>
+            <p>Wire busca versiones nuevas por sí solo y te las ofrece con un clic. En Windows puede instalarlas solo si la ventana está cerrada y no hay nada a medias. Si la firma no es la de VT Asvent, no se instala.</p>
+          </details>
+          <details>
+            <summary>¿Qué necesito para instalarlo?</summary>
+            <p>Windows 10 (versión 1809 o superior) u 11 de 64 bits, o Android 8 o superior en un equipo de 64 bits (arm64). Y al menos una cuenta de Google.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ Descarga final -->
+    <section class="section section-last" id="descargar">
+      <div class="container">
+        <div class="final" data-reveal>
+          <img class="final-bg" src="../assets/img/everest.webp" alt="" loading="lazy" />
+          <span class="veil" aria-hidden="true"></span>
+          <span class="fade" aria-hidden="true"></span>
+          <div class="final-inner">
+            <img class="final-logo" src="logo.png" alt="" width="64" height="64" loading="lazy" />
+            <h2 class="display small">Conéctalo hoy. <span class="accent">Gratis.</span></h2>
+            <p class="lead">Elige tu bóveda, conecta tu cuenta de Google y Wire se encarga del resto.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire_0.1.6_x64-setup.exe">
+                <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm0 13 7.5 1.1v-7.1H3v6Zm8.5 1.2L21 21v-8.5h-9.5v7.2Zm0-15.4v7.2H21V3l-9.5 1.3Z"/></svg>
+                <span class="btn-label">Descargar para Windows<small><span data-version-short>Versión estable</span> · Windows 10 y 11</small></span>
+              </a>
+              <a class="btn btn-soft btn-lg" href="https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire-0.1.6.apk">
+                <svg class="win" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.87 3.23A11.43 11.43 0 0 0 12 8.2c-1.76 0-3.4.39-4.91.95L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+                <span class="btn-label">Descargar para Android<small>Android 8 o superior</small></span>
+              </a>
+            </div>
+            <p class="fine">Publicado el <span data-date>—</span> · <a href="privacidad/">Privacidad</a> · <a href="terminos/">Términos</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ============================================================ Pie -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><img src="logo.png" alt="" width="28" height="28" loading="lazy" /><span>WIRE</span></a>
+        <p>Wire es un producto de <b>VT Asvent</b>, desarrollo de software · Huancayo, Perú.</p>
+      </div>
+      <nav class="footer-links" aria-label="Enlaces">
+        <a href="#descargar">Descargar</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="terminos/">Términos</a>
+        <a href="privacidad/">Privacidad</a>
+        <a href="../">Frame</a>
+        <a href="../.well-known/security.txt">Reportar una vulnerabilidad</a>
+      </nav>
+      <p class="copy">© <span data-year>2026</span> VT Asvent. Todos los derechos reservados · vt.asvent@gmail.com</p>
+    </div>
+  </footer>
 </body>
 </html>
