@@ -1,16 +1,16 @@
 {
-  "version": "0.1.6",
-  "notes": "Inicio nuevo: tu bóveda a un lado, Drive al otro y los datos en medio. Ajustes con encabezado nuevo, barra lateral que se pliega y una app más simple: se fueron las funciones que casi no se usaban.",
-  "pub_date": "2026-11-03T00:55:47Z",
+  "version": "0.1.7",
+  "notes": "Wire reemplaza a Obsidian: editor de notas con vista en vivo, búsqueda, enlaces que se actualizan al renombrar, revisión de la bóveda y un MCP local para que Claude Code lea y edite tus notas sin Obsidian. En la nube, cada nota muestra su descripción.",
+  "pub_date": "2026-11-03T21:06:56Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire_0.1.6_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZms5LzYyWEtmZ2tMZDJycnpTODgzODhicHJsWHpNeVRMb29qdmVwcHI5S00vK0pPRTNmc3I4MmoyeGl6ME4zZW1lUHF5QTdZWVIrQkhsU3NoUHNlMUFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjY3MDIxCWZpbGU6V2lyZV8wLjEuNl94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjYKT3RxVG51UVlQSTExVnFrU0RGNEdCOGZiNW9YdUFpNG10aWE5ejZJb01tUXJmNHk1ZEpoRmtzSUFLenF4a3J0cDE5NjJOeExXa1dlTHJlY09Bc2pHRGc9PQo="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.7/Wire_0.1.7_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnV0eG5KRXR4QW1FcjY0OW9HQW5HYXVvekF1d2F4M0ZaTDdlYWNsYWIzbVVVMHlFU0tVQzF2cnFBTVlLd3NCZUp0YWp2M2ljeENKYTQyOGNpV01WN3cwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNzM5NTA2CWZpbGU6V2lyZV8wLjEuN194NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjcKMVpncVU3cTVPcWZBaEJyU1lEdnVKa0tOcnlWOWltaFcwUVBWWjVoU3BJU0hvdERaNEluQ0U1dmNDYnpyeXJxTEdYdWpQbkRnR1VFZGJxRkoxa0VKRHc9PQo="
     }
   },
   "wire": {
-    "size": 3759799,
+    "size": 5545154,
     "minimum": "0.1.0",
-    "notes_en": "New Home: your vault on one side, Drive on the other and the numbers in between. A new Settings header, a collapsible sidebar and a simpler app: rarely used features are gone."
+    "notes_en": "Wire replaces Obsidian: a note editor with live preview, search, links that update when you rename, a vault check and a local MCP so Claude Code reads and edits your notes without Obsidian. In the cloud, every note shows its description."
   }
 }

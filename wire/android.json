@@ -1,10 +1,10 @@
 {
-  "version": "0.1.6",
-  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.6/Wire-0.1.6.apk",
-  "sha256": "13ea739ab101ea24b93bbf63374300f91d6139a89d4b74b4bbaa3da3d96ef08d",
-  "size": 5791998,
+  "version": "0.1.7",
+  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.7/Wire-0.1.7.apk",
+  "sha256": "e4c7c1e930cba244212488d51a415a77cb2afa8f3988f841e4f97cdc451dda66",
+  "size": 7642766,
   "date": "2026-11-03",
   "minimum": "0.1.0",
-  "notes": "Inicio nuevo: tu bóveda a un lado, Drive al otro y los datos en medio. Ajustes con encabezado nuevo, barra lateral que se pliega y una app más simple: se fueron las funciones que casi no se usaban.",
-  "notes_en": "New Home: your vault on one side, Drive on the other and the numbers in between. A new Settings header, a collapsible sidebar and a simpler app: rarely used features are gone."
+  "notes": "Wire reemplaza a Obsidian: editor de notas con vista en vivo, búsqueda, enlaces que se actualizan al renombrar, revisión de la bóveda y un MCP local para que Claude Code lea y edite tus notas sin Obsidian. En la nube, cada nota muestra su descripción.",
+  "notes_en": "Wire replaces Obsidian: a note editor with live preview, search, links that update when you rename, a vault check and a local MCP so Claude Code reads and edits your notes without Obsidian. In the cloud, every note shows its description."
 }
