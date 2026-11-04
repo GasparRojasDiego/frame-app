@@ -1,16 +1,16 @@
 {
-  "version": "0.1.8",
-  "notes": "La búsqueda de notas responde en milisegundos y ve al momento lo que cambia fuera de Wire. Además, leer una nota nunca sale de la bóveda y el HTML de una nota ya no puede cambiar el aspecto de Wire.",
-  "pub_date": "2026-11-03T23:34:48Z",
+  "version": "0.1.9",
+  "notes": "Cada nota guarda su historial con quién hizo cada cambio, y puedes deshacer de un clic todo lo que hizo un chat de IA. Respaldo semanal comprobado, límites para la IA, grafo nuevo con la tarjeta gráfica, paleta de comandos, paneles divididos, Bases editables y Notas en Android.",
+  "pub_date": "2026-11-04T13:44:09Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.8/Wire_0.1.8_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnNJUnFrS3c3TGlRRjJDaE1kK3gwQ1VSeDFaYkMyRFc3SW15dmJxT0NTVHFRRHR2L1g2cDhCd2VqVkpYK29BcE9VZlB0c0V0ZXZLcTdMSW1CV21ZblE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNzQ3MzEwCWZpbGU6V2lyZV8wLjEuOF94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjgKK25uOGtwZVR0MGVGbUdDMmVITnVDWkEvSTNRVXRmUGJYbWNEL2NZN0J0dGRPMTA2MUU3QStibXRkSmoxOEczSEIyUjdwZmlLZ2VKS2RoWkgxei9VQWc9PQo="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.9/Wire_0.1.9_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnFIVjZ1Ulg3dERoV0Z4NUtyWGVXYUYrSlBwRkZkMDNZeGQzRW1CQWszNnBhRExZTnp4WGRCUkQ2aWNVbjVHbkZaYlhzT2lNQ3RFQkxwZTA3bG1DdkFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNzk5MDY4CWZpbGU6V2lyZV8wLjEuOV94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjkKVUhtUVFWRnZ4WHpOK2NPVjVleFlSL3RwTWhZZU1qZmZ3Ym9OU2dTTWNYL3FucW5WTitGWTV1SDRxUTZLNUJmTUlSVTV5UCtaSTB4djhHc1VvQThnQ2c9PQo="
     }
   },
   "wire": {
-    "size": 5551829,
+    "size": 5789932,
     "minimum": "0.1.0",
-    "notes_en": "Note search answers in milliseconds and sees changes made outside Wire right away. Also, reading a note never leaves the vault, and a note's HTML can no longer change how Wire looks."
+    "notes_en": "Every note keeps its history with who made each change, and you can undo everything an AI chat did in one click. Weekly verified backup, limits for the AI, a new GPU graph, command palette, split panes, editable Bases and Notes on Android."
   }
 }
