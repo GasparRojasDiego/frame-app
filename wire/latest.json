@@ -1,16 +1,16 @@
 {
-  "version": "0.1.9",
-  "notes": "Cada nota guarda su historial con quién hizo cada cambio, y puedes deshacer de un clic todo lo que hizo un chat de IA. Respaldo semanal comprobado, límites para la IA, grafo nuevo con la tarjeta gráfica, paleta de comandos, paneles divididos, Bases editables y Notas en Android.",
-  "pub_date": "2026-11-04T13:44:09Z",
+  "version": "0.1.10",
+  "notes": "Arreglo de seguridad: una carpeta de solo lectura queda protegida también cuando la IA quiere mover o tirar la carpeta que la contiene, o renombrar una nota enlazada desde ella.",
+  "pub_date": "2026-11-04T14:26:07Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.9/Wire_0.1.9_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnFIVjZ1Ulg3dERoV0Z4NUtyWGVXYUYrSlBwRkZkMDNZeGQzRW1CQWszNnBhRExZTnp4WGRCUkQ2aWNVbjVHbkZaYlhzT2lNQ3RFQkxwZTA3bG1DdkFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNzk5MDY4CWZpbGU6V2lyZV8wLjEuOV94NjQtc2V0dXAuZXhlCXZlcnNpb246MC4xLjkKVUhtUVFWRnZ4WHpOK2NPVjVleFlSL3RwTWhZZU1qZmZ3Ym9OU2dTTWNYL3FucW5WTitGWTV1SDRxUTZLNUJmTUlSVTV5UCtaSTB4djhHc1VvQThnQ2c9PQo="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.10/Wire_0.1.10_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnExWjlNdWtvdFR4cWV2ZjVYcmt2YjNIZ0pQL1lIRUtFcUYvd2E2bkxmT2FwYWN6aENhZ1RCelE1eFppNEdBRng0eGlQRzE1V09TeURYd09rS2ZmU1FBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODAxMjU1CWZpbGU6V2lyZV8wLjEuMTBfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMS4xMApsZE1DM05qU2Z6MmNKdDEveGE5OTNrNGd3ZEhtZWlHWFBnUkEyY0c3ZjZCL2lZTS8yQjJlNDBEODByRWwvdGV6L3FjUjFEdnlXcTZ3azFlZDIzNFlDQT09Cg=="
     }
   },
   "wire": {
-    "size": 5789932,
+    "size": 5792215,
     "minimum": "0.1.0",
-    "notes_en": "Every note keeps its history with who made each change, and you can undo everything an AI chat did in one click. Weekly verified backup, limits for the AI, a new GPU graph, command palette, split panes, editable Bases and Notes on Android."
+    "notes_en": "Security fix: a read-only folder stays protected when the AI tries to move or trash the folder that contains it, or to rename a note linked from it."
   }
 }
