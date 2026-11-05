@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">Frame</h1>
-<p align="center"><b>Tu sistema operativo de estudio.</b><br/>Un producto de <b>VT Asvent</b> · Huancayo, Perú</p>
+<p align="center"><b>Tu sistema operativo de estudio.</b><br/>Un producto de <b>Asvent</b> · Huancayo, Perú</p>
 
 <p align="center">
   <a href="https://vt-asvent.github.io/frame-app/"><b>Página oficial</b></a> ·
@@ -38,4 +38,4 @@ Solo la página de descarga vive en este repositorio: el código de la app está
 
 ---
 
-<p align="center">© 2026 VT Asvent. Todos los derechos reservados.</p>
+<p align="center">© 2026 Asvent. Todos los derechos reservados.</p>

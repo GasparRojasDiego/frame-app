@@ -1,6 +1,6 @@
 # Política de seguridad
 
-Frame es un producto de **VT Asvent**. La seguridad de quienes lo usan es prioritaria.
+Frame es un producto de **Asvent**. La seguridad de quienes lo usan es prioritaria.
 
 ## Versiones con soporte
 
@@ -26,7 +26,7 @@ Recibirás respuesta por el mismo canal. Mientras investigamos, te pedimos no di
 
 ## Cómo protegemos las descargas
 
-- Cada versión de la app está **firmada**: Frame solo instala actualizaciones con la firma de VT Asvent.
+- Cada versión de la app está **firmada**: Frame solo instala actualizaciones con la firma de Asvent.
 - Junto a cada versión se publica su huella **SHA-256**. Compruébala antes de instalar:
 
   ```powershell

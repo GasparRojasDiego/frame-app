@@ -10,7 +10,7 @@
   var pointer = { x: -9999, y: -9999, active: false };
 
   function primaryRgb() {
-    return (getComputedStyle(root).getPropertyValue('--primary-rgb').trim() || '117, 145, 255');
+    return (getComputedStyle(root).getPropertyValue('--primary-rgb').trim() || '167, 199, 242');
   }
   var rgb = primaryRgb();
 
