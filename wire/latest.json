@@ -1,16 +1,16 @@
 {
-  "version": "0.1.10",
-  "notes": "Arreglo de seguridad: una carpeta de solo lectura queda protegida también cuando la IA quiere mover o tirar la carpeta que la contiene, o renombrar una nota enlazada desde ella.",
-  "pub_date": "2026-11-04T14:26:07Z",
+  "version": "0.1.11",
+  "notes": "El grafo se ordena en figuras (círculo, estrella, corazón, esfera, cubo y Saturno), con siete paletas de color (una en grises), nombres que se pueden ocultar, círculos y enlaces que se ajustan por separado y físicas más fluidas. Wire toma la apariencia de Frame: colores con color propio, animaciones de fondo, imagen, títulos y esquinas. Inicio y Drive son ahora una sola pantalla.",
+  "pub_date": "2026-11-13T13:54:38Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.10/Wire_0.1.10_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnExWjlNdWtvdFR4cWV2ZjVYcmt2YjNIZ0pQL1lIRUtFcUYvd2E2bkxmT2FwYWN6aENhZ1RCelE1eFppNEdBRng0eGlQRzE1V09TeURYd09rS2ZmU1FBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODAxMjU1CWZpbGU6V2lyZV8wLjEuMTBfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMS4xMApsZE1DM05qU2Z6MmNKdDEveGE5OTNrNGd3ZEhtZWlHWFBnUkEyY0c3ZjZCL2lZTS8yQjJlNDBEODByRWwvdGV6L3FjUjFEdnlXcTZ3azFlZDIzNFlDQT09Cg=="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.11/Wire_0.1.11_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnBzQXBBWVZSNUpDMkZGVG9FbHBpWjRDMkJVN0NzYnZ2bmlUcGZyK1J5ejkyakF2NmtxcUl0UXdNb2V3Nmd4M1RUZXUyUDhGcERRQ0ppOWlWdFIzMFFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTc0NDUzCWZpbGU6V2lyZV8wLjEuMTFfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMS4xMQpKMEdRMkRSemh2SGJxTFg0K1NNNnpyTlhDNDhDRUx1OEY4ZTNpUFNIQjZIL1JwSFM4UlpLd3R1Y0swcEZBN3FFY2ZKdXVZbEFLUEdSbGgrNkNmbW1EZz09Cg=="
     }
   },
   "wire": {
-    "size": 5792215,
+    "size": 5129232,
     "minimum": "0.1.0",
-    "notes_en": "Security fix: a read-only folder stays protected when the AI tries to move or trash the folder that contains it, or to rename a note linked from it."
+    "notes_en": "The graph can arrange itself into shapes (circle, star, heart, sphere, cube and Saturn), with seven color palettes (one in grays), names you can hide, circles and links adjusted separately and smoother physics. Wire takes on Frame's look: colors with a custom color, background animations, image, headings and corners. Home and Drive are now a single screen."
   }
 }
