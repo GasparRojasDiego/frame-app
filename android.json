@@ -1,8 +1,8 @@
 {
-  "version": "1.4.0",
+  "version": "1.4.1",
   "minimum": "1.3.1",
-  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/android-v1.4.0/Frame-Android.apk",
-  "sha256": "4298c7da6fac75b2d06c1257b5aab5ad7f58f098562ac84ee133d224f89d6aac",
-  "size": 11665563,
-  "date": "2026-11-13T02:16:04Z"
+  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/android-v1.4.1/Frame-Android.apk",
+  "sha256": "ecb3fbdacbb15c83980d2eeb97ee06c5a2948fdd24b8138b0a427104837a52bb",
+  "size": 11774075,
+  "date": "2026-11-13T22:01:25Z"
 }
