@@ -1,10 +1,10 @@
 {
-  "version": "0.1.11",
-  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.11/Wire-0.1.11.apk",
-  "sha256": "17faa6a79a1351f12db2d4c1b1959b35e54b0485c66da6fd7a2a600ee931a454",
-  "size": 7186894,
+  "version": "0.1.12",
+  "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.12/Wire-0.1.12.apk",
+  "sha256": "07cd51f120f93c71a4f1be226ef63defc9b594872c550ede718711ead734b89a",
+  "size": 7181202,
   "date": "2026-11-13",
   "minimum": "0.1.0",
-  "notes": "El grafo se ordena en figuras (círculo, estrella, corazón, esfera, cubo y Saturno), con siete paletas de color (una en grises), nombres que se pueden ocultar, círculos y enlaces que se ajustan por separado y físicas más fluidas. Wire toma la apariencia de Frame: colores con color propio, animaciones de fondo, imagen, títulos y esquinas. Inicio y Drive son ahora una sola pantalla.",
-  "notes_en": "The graph can arrange itself into shapes (circle, star, heart, sphere, cube and Saturn), with seven color palettes (one in grays), names you can hide, circles and links adjusted separately and smoother physics. Wire takes on Frame's look: colors with a custom color, background animations, image, headings and corners. Home and Drive are now a single screen."
+  "notes": "El grafo estrena siete paletas de color (una en grises), los nombres de los círculos se pueden ocultar y los ajustes de los círculos y de los enlaces van por separado. Por dentro, el código queda más corto y ordenado. Incluye lo de la 0.1.11: figuras para el grafo (círculo, estrella, corazón, esfera, cubo y Saturno), la apariencia de Frame, e Inicio y Drive en una sola pantalla.",
+  "notes_en": "The graph gets seven color palettes (one in grays), circle names can be hidden, and circle and link settings are now separate. Under the hood, the code is shorter and tidier. Includes everything from 0.1.11: graph shapes (circle, star, heart, sphere, cube and Saturn), Frame's look, and Home and Drive in a single screen."
 }

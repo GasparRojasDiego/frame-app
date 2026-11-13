@@ -1,16 +1,16 @@
 {
-  "version": "0.1.11",
-  "notes": "El grafo se ordena en figuras (círculo, estrella, corazón, esfera, cubo y Saturno), con siete paletas de color (una en grises), nombres que se pueden ocultar, círculos y enlaces que se ajustan por separado y físicas más fluidas. Wire toma la apariencia de Frame: colores con color propio, animaciones de fondo, imagen, títulos y esquinas. Inicio y Drive son ahora una sola pantalla.",
-  "pub_date": "2026-11-13T13:54:38Z",
+  "version": "0.1.12",
+  "notes": "El grafo estrena siete paletas de color (una en grises), los nombres de los círculos se pueden ocultar y los ajustes de los círculos y de los enlaces van por separado. Por dentro, el código queda más corto y ordenado. Incluye lo de la 0.1.11: figuras para el grafo (círculo, estrella, corazón, esfera, cubo y Saturno), la apariencia de Frame, e Inicio y Drive en una sola pantalla.",
+  "pub_date": "2026-11-13T14:25:11Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.11/Wire_0.1.11_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZnBzQXBBWVZSNUpDMkZGVG9FbHBpWjRDMkJVN0NzYnZ2bmlUcGZyK1J5ejkyakF2NmtxcUl0UXdNb2V3Nmd4M1RUZXUyUDhGcERRQ0ppOWlWdFIzMFFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTc0NDUzCWZpbGU6V2lyZV8wLjEuMTFfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMS4xMQpKMEdRMkRSemh2SGJxTFg0K1NNNnpyTlhDNDhDRUx1OEY4ZTNpUFNIQjZIL1JwSFM4UlpLd3R1Y0swcEZBN3FFY2ZKdXVZbEFLUEdSbGgrNkNmbW1EZz09Cg=="
+      "url": "https://github.com/GasparRojasDiego/frame-app/releases/download/wire-v0.1.12/Wire_0.1.12_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUanRtNDI1b0tQZmlCcXB5cXVVdExPWWVia0QxNDhyclB2eGVjVFVscWZJZkJVdStjNEI4a0I4V1FjUTZpVGdZQTUwWm9SSTlKcWk3Yno3N1NtNWhCM3l1SnZ2L3VHeEFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTc5MTYzCWZpbGU6V2lyZV8wLjEuMTJfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuMS4xMgpSSW5MT2NzYnJPWTRhckJZTE5SLzhxOHVUZjVZV2s0Q2tnQUNqM0xqZFZZNGM3THRyVkxzdUJpanBhVlQwUUh5d053N2d4RXo2SEI3OUFxdksvVUhEZz09Cg=="
     }
   },
   "wire": {
-    "size": 5129232,
+    "size": 5123522,
     "minimum": "0.1.0",
-    "notes_en": "The graph can arrange itself into shapes (circle, star, heart, sphere, cube and Saturn), with seven color palettes (one in grays), names you can hide, circles and links adjusted separately and smoother physics. Wire takes on Frame's look: colors with a custom color, background animations, image, headings and corners. Home and Drive are now a single screen."
+    "notes_en": "The graph gets seven color palettes (one in grays), circle names can be hidden, and circle and link settings are now separate. Under the hood, the code is shorter and tidier. Includes everything from 0.1.11: graph shapes (circle, star, heart, sphere, cube and Saturn), Frame's look, and Home and Drive in a single screen."
   }
 }
